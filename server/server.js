@@ -47,8 +47,8 @@ const cardsRouter = require('./routes/cards');
 app.use('/cards', cardsRouter);
 
 // Connect to redux
-const reduxsRouter = require('./routes/reduxs');
-app.use('/reduxs', reduxsRouter);
+// const reduxsRouter = require('./routes/reduxs');
+// app.use('/reduxs', reduxsRouter);
 
 // process.env.port is Heroku's port if you choose to deploy the app there
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
