@@ -39,6 +39,11 @@
 
 ---
 
+### Research:
+
+- Procfile
+- Deploy Mern Stack application
+
 ### Miscellaneous :
 
 to add user/username to backend models, routes, and server.js
@@ -62,3 +67,10 @@ https://auth0.com/blog/complete-guide-to-react-user-authentication/#Retrieving-U
 https://github.com/rishipr/mern-auth/
 
 need to research why client folder never pushes to github
+
+https://github.com/dunky11/react-saas-template/blob/master/src/shared/components/NavigationDrawer.js
+
+https://dev.to/stlnick/how-to-deploy-a-full-stack-mern-app-with-heroku-netlify-ncb
+
+Creating app... done, ⬢ protected-tundra-55112
+https://protected-tundra-55112.herokuapp.com/ | https://git.heroku.com/protected-tundra-55112.git
