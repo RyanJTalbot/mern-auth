@@ -1,6 +1,9 @@
 {
   "name": "mern_auth",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.13.1",
+  },
   "description": "#### - Style Homepage add login / signin",
   "main": "index.js",
   "scripts": {
