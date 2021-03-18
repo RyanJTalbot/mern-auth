@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
 import classnames from 'classnames';
-import Navbarz from '../layout/Navbar';
+import Navbarz from '../layout/Navbarz';
 
 class Login extends Component {
 	constructor() {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
 import classnames from 'classnames';
-import Navbarz from '../layout/Navbar';
+import Navbarz from '../layout/Navbarz';
 
 class Register extends Component {
 	constructor() {
@@ -59,8 +59,7 @@ class Register extends Component {
 					<div className='row'>
 						<div className='col s8 offset-s2'>
 							<Link to='/' className='btn-flat waves-effect'>
-								<i className='material-icons left'>keyboard_backspace</i> Back
-								to home
+								<i className='left'>keyboard_backspace</i> Back to home
 							</Link>
 							<div className='col s12' style={{ paddingLeft: '11.250px' }}>
 								<h4>

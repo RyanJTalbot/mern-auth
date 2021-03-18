@@ -1,13 +1,42 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import Navbarz from './Navbarz';
 
 class Landing extends Component {
 	render() {
 		return (
 			<div>
-				<Navbar />
-				<div style={{ height: '75vh' }} className='container valign-wrapper'>
+				<Navbarz />
+
+				<Container className='my-auto'>
+					<Row>
+						<Col>
+							<h1 className='landing-title'>
+								<b>MERN-STACK</b> Flashcard Application
+							</h1>
+						</Col>
+					</Row>
+					<Row>
+						<Col>
+							<h1 className='btn-txt-space'> </h1>
+						</Col>
+					</Row>
+					<span>
+						<Row className='justify-content-md-center'>
+							<Col md='auto'>
+								<Button href='/register' variant='secondary' size='lg'>
+									Register
+								</Button>
+
+								<Button href='/login' variant='secondary' size='lg'>
+									Sign-In
+								</Button>
+							</Col>
+						</Row>
+					</span>
+				</Container>
+
+				{/* <div style={{ height: '75vh' }} className='container valign-wrapper'>
 					<div className='row'>
 						<div className='col s12 center-align'>
 							<h4>
@@ -43,7 +72,7 @@ class Landing extends Component {
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		);
 	}

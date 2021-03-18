@@ -7,3 +7,17 @@
 	align-items: center;
 	justify-content: space-around;
 }
+
+.landing-title {
+	display: block;
+	margin-top: 80px;
+}
+
+.ans {
+	display: block;
+	text-align: center;
+}
+
+.btn-txt-space {
+	padding-top: 90px;
+}

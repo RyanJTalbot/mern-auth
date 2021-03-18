@@ -9,10 +9,7 @@ function NextQuestion() {
 		<div className='container'>
 			<div className='row'>
 				<div className='col s12'>
-					<Button
-						className='waves-effect  blue waves-dark btn-large'
-						onClick={refreshPage}
-					>
+					<Button variant='outline-dark' block size='lg' onClick={refreshPage}>
 						Next
 					</Button>
 				</div>
