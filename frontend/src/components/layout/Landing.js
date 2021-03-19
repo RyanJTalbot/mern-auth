@@ -11,7 +11,7 @@ class Landing extends Component {
 				<Container className='my-auto'>
 					<Row>
 						<Col>
-							<h1 className='landing-title'>
+							<h1 className='landing-title' style={{textAlign:'center', marginTop:'8rem'}}>
 								<b>MERN-STACK</b> Flashcard Application
 							</h1>
 						</Col>
@@ -24,11 +24,11 @@ class Landing extends Component {
 					<span>
 						<Row className='justify-content-md-center'>
 							<Col md='auto'>
-								<Button href='/register' variant='secondary' size='lg'>
+								<Button href='/register' variant='secondary' size='lg' style={{marginRight:'5rem'}}>
 									Register
 								</Button>
 
-								<Button href='/login' variant='secondary' size='lg'>
+								<Button href='/login' variant='secondary' size='lg' style={{marginLeft:'5rem'}}>
 									Sign-In
 								</Button>
 							</Col>

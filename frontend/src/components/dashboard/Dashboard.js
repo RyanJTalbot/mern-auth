@@ -18,7 +18,7 @@ class Dashboard extends Component {
 				<NavbarUser />
 				<div style={{ height: '75vh' }} className='container valign-wrapper'>
 					<div className='row'>
-						<div className='col s12 center-align'>
+						<div className='col s12 center-align' style={{ marginTop:'8rem', textAlign:'center'}}>
 							<h4>
 								<b>Hi,</b> {user.name.split(' ')[0]}
 								<p className='flow-text grey-text text-darken-1'>

@@ -58,20 +58,18 @@ class Login extends Component {
 				<div className='container'>
 					<div style={{ marginTop: '4rem' }} className='row'>
 						<div className='col s8 offset-s2'>
-							<Link to='/' className='btn-flat waves-effect'>
-								<i className='material-icons left'>keyboard_backspace</i> Back
-								to home
-							</Link>
-							<div className='col s12' style={{ paddingLeft: '11.250px' }}>
-								<h4>
-									<b>Login</b> below
+							
+							<div className='col s12' style={{ paddingLeft: '11.250px', textAlign:'center', fontSize:'2rem' }}>
+								<h4 style={{fontSize:'3rem'}}>
+									<b>Login</b> Here!
 								</h4>
 								<p className='grey-text text-darken-1'>
 									Don't have an account? <Link to='/register'>Register</Link>
 								</p>
 							</div>
-							<form noValidate onSubmit={this.onSubmit}>
+							<form noValidate onSubmit={this.onSubmit} style={{paddingLeft:'40%'}}>
 								<div className='input-field col s12'>
+								<label htmlFor='email'>Email</label>
 									<input
 										onChange={this.onChange}
 										value={this.state.email}
@@ -82,13 +80,14 @@ class Login extends Component {
 											invalid: errors.email || errors.emailnotfound,
 										})}
 									/>
-									<label htmlFor='email'>Email</label>
+									
 									<span className='red-text'>
 										{errors.email}
 										{errors.emailnotfound}
 									</span>
 								</div>
 								<div className='input-field col s12'>
+								<label htmlFor='password'>Password</label>
 									<input
 										onChange={this.onChange}
 										value={this.state.password}
@@ -99,7 +98,7 @@ class Login extends Component {
 											invalid: errors.password || errors.passwordincorrect,
 										})}
 									/>
-									<label htmlFor='password'>Password</label>
+									
 									<span className='red-text'>
 										{errors.password}
 										{errors.passwordincorrect}

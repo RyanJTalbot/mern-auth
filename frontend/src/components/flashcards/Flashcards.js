@@ -27,7 +27,7 @@ export default function FlashCards() {
 		<Container className='container'>
 			{/* Question from MongoDB */}
 			<Row>
-				<Col>
+				<Col style={{ marginTop:'6rem', textAlign:'center'}}>
 					{choiced.map((choiceds) => (
 						<h3 key={choiceds._id}>{choiceds.question}</h3>
 					))}
@@ -37,7 +37,7 @@ export default function FlashCards() {
 			{/* Choices from MongoDB */}
 
 			<Row>
-				<Col>
+				<Col style={{ marginTop:'4rem'}}>
 					{choiced.map((choiceds) => (
 						<Button variant='outline-dark' size='lg' block key={choiceds._id}>
 							A. {choiceds.choiceA}
@@ -88,7 +88,7 @@ export default function FlashCards() {
 					</Button>
 
 					{showAns && (
-						<div className='ans'>
+						<div className='ans' style={{textAlign:'center', fontSize:'8rem'}}>
 							{choiced.map((choiceds) => (
 								<h2 key={choiceds._id}>{choiceds.answer}</h2>
 							))}

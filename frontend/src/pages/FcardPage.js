@@ -9,7 +9,7 @@ class FcardPage extends React.Component {
 			<div className='card-page'>
 				<NavbarUser />
 				<Flashcards />
-				<NextQuestion />
+				<NextQuestion  />
 			</div>
 		);
 	}
