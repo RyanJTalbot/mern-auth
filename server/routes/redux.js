@@ -1,13 +1,13 @@
 const router = require('express').Router();
 let Redux = require('../models/reduxModel');
 
-router.route('/redux').get((req, res) => {
+router.route('/').get((req, res) => {
 	//to get one data set at a time I used Card.find().limit(1)
 
 	// Below code is used to get just one data set
 	Redux.aggregate([{ $sample: { size: 1 } }])
 		// Redux.find()
-		.then((reduxs) => res.json(reduxs))
+		.then((redux) => res.json(redux))
 		.catch((err) => res.status(400).json('Error: ' + err));
 });
 

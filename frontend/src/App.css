@@ -21,3 +21,13 @@
 .btn-txt-space {
 	padding-top: 90px;
 }
+
+.footer{
+  padding: 1rem;
+  background-color: rgb(235, 195, 64);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+}

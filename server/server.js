@@ -47,8 +47,8 @@ const cardsRouter = require('./routes/cards');
 app.use('/cards', cardsRouter);
 
 // Connect to redux
-// const reduxsRouter = require('./routes/reduxs');
-// app.use('/reduxs', reduxsRouter);
+const reduxRouter = require('./routes/redux');
+app.use('/redux', reduxRouter);
 
 // if (process.env.NODE_ENV === 'production') {
 // 	app.use(express.static(path.join(__dirname, '/frontend/build')));

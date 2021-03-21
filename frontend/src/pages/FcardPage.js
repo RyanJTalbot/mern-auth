@@ -2,6 +2,7 @@ import React from 'react';
 import Flashcards from '../components/flashcards/Flashcards';
 import NextQuestion from '../components/flashcards/NextQuestion';
 import NavbarUser from '../components/layout/NavbarUser';
+import Footer from '../components/Footer';
 
 class FcardPage extends React.Component {
 	render() {
@@ -10,6 +11,7 @@ class FcardPage extends React.Component {
 				<NavbarUser />
 				<Flashcards />
 				<NextQuestion  />
+				<Footer />
 			</div>
 		);
 	}

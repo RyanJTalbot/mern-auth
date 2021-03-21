@@ -23,7 +23,7 @@ class Login extends Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (nextProps.auth.isAuthenticated) {
 			this.props.history.push('/dashboard');
 			// push user to dashboard when they login
@@ -56,10 +56,10 @@ class Login extends Component {
 			<div>
 				<Navbarz />
 				<div className='container'>
-					<div style={{ marginTop: '4rem' }} className='row'>
-						<div className='col s8 offset-s2'>
+					<div >
+						<div style={{textAlign:'center', marginTop:'5rem'}}>
 							
-							<div className='col s12' style={{ paddingLeft: '11.250px', textAlign:'center', fontSize:'2rem' }}>
+							<div style={{ paddingLeft: '11.250px', textAlign:'center', fontSize:'2rem' }}>
 								<h4 style={{fontSize:'3rem'}}>
 									<b>Login</b> Here!
 								</h4>
@@ -67,10 +67,12 @@ class Login extends Component {
 									Don't have an account? <Link to='/register'>Register</Link>
 								</p>
 							</div>
-							<form noValidate onSubmit={this.onSubmit} style={{paddingLeft:'40%'}}>
-								<div className='input-field col s12'>
-								<label htmlFor='email'>Email</label>
+							<hr style={{margin:'3rem'}}></hr>
+							<form noValidate onSubmit={this.onSubmit} >
+								<div style={{fontSize:'2rem'}} >
+								<label htmlFor='email'>Email: </label>
 									<input
+									style={{marginLeft:'3rem'}}
 										onChange={this.onChange}
 										value={this.state.email}
 										error={errors.email}
@@ -86,9 +88,10 @@ class Login extends Component {
 										{errors.emailnotfound}
 									</span>
 								</div>
-								<div className='input-field col s12'>
-								<label htmlFor='password'>Password</label>
+								<div style={{fontSize:'2rem'}}>
+								<label htmlFor='password'>Password: </label>
 									<input
+										style={{marginLeft:'1rem'}}
 										onChange={this.onChange}
 										value={this.state.password}
 										error={errors.password}
@@ -104,13 +107,15 @@ class Login extends Component {
 										{errors.passwordincorrect}
 									</span>
 								</div>
-								<div className='col s12' style={{ paddingLeft: '11.250px' }}>
+								<div style={{ paddingLeft: '11.250px' }}>
 									<button
 										style={{
 											width: '150px',
 											borderRadius: '3px',
 											letterSpacing: '1.5px',
-											marginTop: '1rem',
+											marginTop: '5rem',
+											border: 'solid black 1px',
+											fontSize: '2rem'
 										}}
 										type='submit'
 										className='btn btn-large waves-effect waves-light hoverable blue accent-3'

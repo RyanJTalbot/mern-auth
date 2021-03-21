@@ -25,7 +25,7 @@ class Register extends Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
+	componenteceiveProps(nextProps) {
 		if (nextProps.errors) {
 			this.setState({
 				errors: nextProps.errors,
@@ -57,19 +57,22 @@ class Register extends Component {
 				<Navbarz />
 				<div className='container'>
 					<div className='row'>
-						<div className='col s8 offset-s2'>
+						<div className='col s8 offset-s2' style={{ paddingLeft: '11.250px', fontSize:'2rem' }}>
 							
-							<div className='col s12' style={{ paddingLeft: '11.250px' }}>
-								<h4>
+							<div className='col s12' style={{ textAlign:'center', marginTop:'4rem' }}>
+								<h4 style={{fontSize:'3rem'}}>
 									<b>Register</b> below
 								</h4>
 								<p className='grey-text text-darken-1'>
 									Already have an account? <Link to='/login'>Log in</Link>
 								</p>
 							</div>
-							<form noValidate onSubmit={this.onSubmit}>
-								<div className='input-field col s12'>
+							<hr style={{margin:'3rem'}}></hr>
+							<form noValidate onSubmit={this.onSubmit} >
+								<div style={{marginLeft:'32%', marginTop:'1rem'}}>
+								<label htmlFor='name'>Name: </label>
 									<input
+									style={{marginLeft:'1rem'}}
 										onChange={this.onChange}
 										value={this.state.name}
 										error={errors.name}
@@ -79,11 +82,13 @@ class Register extends Component {
 											invalid: errors.name,
 										})}
 									/>
-									<label htmlFor='name'>Name</label>
+									
 									<span className='red-text'>{errors.name}</span>
 								</div>
-								<div className='input-field col s12'>
+								<div style={{marginLeft:'32%', marginTop:'1rem'}}>
+								<label htmlFor='email'>Email: </label>
 									<input
+									style={{marginLeft:'1.5rem'}}
 										onChange={this.onChange}
 										value={this.state.email}
 										error={errors.email}
@@ -93,11 +98,13 @@ class Register extends Component {
 											invalid: errors.email,
 										})}
 									/>
-									<label htmlFor='email'>Email</label>
+									
 									<span className='red-text'>{errors.email}</span>
 								</div>
-								<div className='input-field col s12'>
+								<div style={{marginLeft:'29%' , marginTop:'1rem'}}>
+								<label htmlFor='password'>Password: </label>
 									<input
+									style={{ marginLeft: '1.2rem'}}
 										onChange={this.onChange}
 										value={this.state.password}
 										error={errors.password}
@@ -107,11 +114,13 @@ class Register extends Component {
 											invalid: errors.password,
 										})}
 									/>
-									<label htmlFor='password'>Password</label>
+									
 									<span className='red-text'>{errors.password}</span>
 								</div>
-								<div className='input-field col s12'>
+								<div style={{marginLeft:'19%', marginTop:'1rem'}}>
+								<label htmlFor='password2'>Confirm Password: </label>
 									<input
+									style={{marginLeft:'.8rem'}}
 										onChange={this.onChange}
 										value={this.state.password2}
 										error={errors.password2}
@@ -121,16 +130,19 @@ class Register extends Component {
 											invalid: errors.password2,
 										})}
 									/>
-									<label htmlFor='password2'>Confirm Password</label>
+									
 									<span className='red-text'>{errors.password2}</span>
 								</div>
-								<div className='col s12' style={{ paddingLeft: '11.250px' }}>
+								<div style={{textAlign:'center'}} >
 									<button
 										style={{
 											width: '150px',
 											borderRadius: '3px',
 											letterSpacing: '1.5px',
-											marginTop: '1rem',
+											marginTop: '5rem',
+											fontSize:'2rem',
+											border:'1px solid black'
+											
 										}}
 										type='submit'
 										className='btn btn-large waves-effect waves-light hoverable blue accent-3'
