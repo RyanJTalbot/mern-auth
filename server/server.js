@@ -6,6 +6,11 @@ const path = require('path');
 const cors = require('cors');
 
 const users = require('./routes/users');
+const cardsRouter = require('./routes/cards');
+const reduxRouter = require('./routes/redux');
+
+const port = process.env.PORT || 8000;
+
 const app = express();
 
 // Bodyparser middleware
@@ -40,14 +45,11 @@ require('./config/passport')(passport);
 
 // Routes
 app.use('/users', users);
-const port = process.env.PORT || 8000;
 
 // Connect to cards
-const cardsRouter = require('./routes/cards');
 app.use('/cards', cardsRouter);
 
 // Connect to redux
-const reduxRouter = require('./routes/redux');
 app.use('/redux', reduxRouter);
 
 // if (process.env.NODE_ENV === 'production') {

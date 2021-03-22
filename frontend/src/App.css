@@ -22,12 +22,23 @@
 	padding-top: 90px;
 }
 
-.footer{
-  padding: 1rem;
-  background-color: rgb(235, 195, 64);
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+.footer {
+	padding: 1rem;
+	background-color: rgb(235, 195, 64);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
 
+.user-navbar {
+	font-size: 2rem;
+	background-color: brown;
+}
+
+@media all and (max-width: 600px) {
+	.user-navbar {
+		font-size: 1rem;
+		background-color: brown;
+	}
 }
