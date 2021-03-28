@@ -14,7 +14,7 @@ class NavbarUser extends Component {
 				<Nav className='mr-auto'>
 					<Nav.Link href='/'>Home | </Nav.Link>
 					<Nav.Link href='/cards'> Flashcards |</Nav.Link>
-					{/* <Nav.Link href='/redux'> Redux</Nav.Link> */}
+					{/* <Nav.Link href='/reduxs'> Redux</Nav.Link> */}
 				</Nav>
 			</Navbar>
 		);

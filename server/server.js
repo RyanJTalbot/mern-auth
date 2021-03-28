@@ -7,7 +7,8 @@ const cors = require('cors');
 
 const users = require('./routes/users');
 const cardsRouter = require('./routes/cards');
-const reduxRouter = require('./routes/redux');
+const reduxRouter = require('./routes/reduxs');
+const mongRouter = require('./routes/moexnode');
 
 const port = process.env.PORT || 8000;
 
@@ -15,11 +16,11 @@ const app = express();
 
 // Bodyparser middleware
 app.use(
-	bodyParser.urlencoded({
+	express.urlencoded({
 		extended: false,
 	}),
 );
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Cors
 app.use(cors());
@@ -50,7 +51,10 @@ app.use('/users', users);
 app.use('/cards', cardsRouter);
 
 // Connect to redux
-app.use('/redux', reduxRouter);
+app.use('/reduxs', reduxRouter);
+
+// Connect to mongo
+app.use('/mongs', mongRouter);
 
 // if (process.env.NODE_ENV === 'production') {
 // 	app.use(express.static(path.join(__dirname, '/frontend/build')));

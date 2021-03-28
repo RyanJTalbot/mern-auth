@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
-
-const reduxSchema = new Schema({
+const reduxSchema = new mongoose.Schema({
 	question: { type: String },
 	choiceA: { type: String },
 	choiceB: { type: String },

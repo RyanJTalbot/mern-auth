@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const cardSchema = new mongoose.Schema({
+const mongoSchema = new mongoose.Schema({
 	question: { type: String },
 	choiceA: { type: String },
 	choiceB: { type: String },
@@ -9,6 +9,6 @@ const cardSchema = new mongoose.Schema({
 	answer: { type: String },
 });
 
-const Card = mongoose.model('Card', cardSchema);
+const Mong = mongoose.model('Mong', mongoSchema);
 
-module.exports = Card;
+module.exports = Mong;

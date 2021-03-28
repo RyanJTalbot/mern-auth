@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { loginUser } from '../../actions/authActions';
 import classnames from 'classnames';
 import Navbarz from '../layout/Navbarz';
+import Footer from '../Footer';
 
 class Login extends Component {
 	constructor() {
@@ -56,23 +57,28 @@ class Login extends Component {
 			<div>
 				<Navbarz />
 				<div className='container'>
-					<div >
-						<div style={{textAlign:'center', marginTop:'5rem'}}>
-							
-							<div style={{ paddingLeft: '11.250px', textAlign:'center', fontSize:'2rem' }}>
-								<h4 style={{fontSize:'3rem'}}>
+					<div>
+						<div style={{ textAlign: 'center', marginTop: '5rem' }}>
+							<div
+								style={{
+									paddingLeft: '11.250px',
+									textAlign: 'center',
+									fontSize: '2rem',
+								}}
+							>
+								<h4 style={{ fontSize: '3rem' }}>
 									<b>Login</b> Here!
 								</h4>
 								<p className='grey-text text-darken-1'>
 									Don't have an account? <Link to='/register'>Register</Link>
 								</p>
 							</div>
-							<hr style={{margin:'3rem'}}></hr>
-							<form noValidate onSubmit={this.onSubmit} >
-								<div style={{fontSize:'2rem'}} >
-								<label htmlFor='email'>Email: </label>
+							<hr style={{ margin: '3rem' }}></hr>
+							<form noValidate onSubmit={this.onSubmit}>
+								<div style={{ fontSize: '2rem' }}>
+									<label htmlFor='email'>Email: </label>
 									<input
-									style={{marginLeft:'3rem'}}
+										style={{ marginLeft: '3rem' }}
 										onChange={this.onChange}
 										value={this.state.email}
 										error={errors.email}
@@ -82,16 +88,16 @@ class Login extends Component {
 											invalid: errors.email || errors.emailnotfound,
 										})}
 									/>
-									
+
 									<span className='red-text'>
 										{errors.email}
 										{errors.emailnotfound}
 									</span>
 								</div>
-								<div style={{fontSize:'2rem'}}>
-								<label htmlFor='password'>Password: </label>
+								<div style={{ fontSize: '2rem' }}>
+									<label htmlFor='password'>Password: </label>
 									<input
-										style={{marginLeft:'1rem'}}
+										style={{ marginLeft: '1rem' }}
 										onChange={this.onChange}
 										value={this.state.password}
 										error={errors.password}
@@ -101,7 +107,7 @@ class Login extends Component {
 											invalid: errors.password || errors.passwordincorrect,
 										})}
 									/>
-									
+
 									<span className='red-text'>
 										{errors.password}
 										{errors.passwordincorrect}
@@ -115,7 +121,7 @@ class Login extends Component {
 											letterSpacing: '1.5px',
 											marginTop: '5rem',
 											border: 'solid black 1px',
-											fontSize: '2rem'
+											fontSize: '2rem',
 										}}
 										type='submit'
 										className='btn btn-large waves-effect waves-light hoverable blue accent-3'
@@ -127,6 +133,7 @@ class Login extends Component {
 						</div>
 					</div>
 				</div>
+				<Footer />
 			</div>
 		);
 	}

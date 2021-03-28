@@ -1,12 +1,12 @@
 ## To-Do :
 
-#### - Style Homepage add login / signin
+#### - ~~Style Homepage add login / signin~~
 
-#### - Add user profile and redirect to profile after google auth.
+#### - Add user profile and redirect to profile after auth.
 
-#### - Show/Hide Flashcards unless user is signed in.
+#### - ~~Show/Hide Flashcards unless user is signed in.~~
 
-#### - Backend - I don't think current method of getting data from backend is most efficient - look for alternatives.
+#### - Backend - ~~I don't think current method of getting data from backend is most efficient - look for alternatives.~~
 
 #### - Flash card groups (maybe)
 
@@ -66,11 +66,10 @@ https://auth0.com/blog/complete-guide-to-react-user-authentication/#Retrieving-U
 
 https://github.com/rishipr/mern-auth/
 
-need to research why client folder never pushes to github
+~~need to research why client folder never pushes to github~~
 
 https://github.com/dunky11/react-saas-template/blob/master/src/shared/components/NavigationDrawer.js
 
 https://dev.to/stlnick/how-to-deploy-a-full-stack-mern-app-with-heroku-netlify-ncb
 
-Creating app... done, ⬢ protected-tundra-55112
-https://protected-tundra-55112.herokuapp.com/ | https://git.heroku.com/protected-tundra-55112.git
+## maybe problem with redux route is a naming conflict or use of a reserve word?

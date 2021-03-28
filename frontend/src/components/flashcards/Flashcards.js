@@ -24,81 +24,111 @@ export default function FlashCards() {
 	}, []);
 
 	return (
-		<Container className='container'>
-			{/* Question from MongoDB */}
-			<Row>
-				<Col style={{ marginTop: '6rem', textAlign: 'center' }}>
-					{choiced.map((choiceds) => (
-						<h3 key={choiceds._id}>{choiceds.question}</h3>
-					))}
-				</Col>
-			</Row>
+		<>
+			<Container className='container'>
+				{/* Question from MongoDB */}
+				<Row>
+					<Col style={{ marginTop: '6rem', textAlign: 'center' }}>
+						{choiced.map((choiceds) => (
+							<h3 key={choiceds._id}>{choiceds.question}</h3>
+						))}
+					</Col>
+				</Row>
 
-			{/* Choices from MongoDB */}
+				{/* Choices from MongoDB */}
 
-			<Row>
-				<Col style={{ marginTop: '4rem' }}>
-					{choiced.map((choiceds) => (
-						<Button variant='outline-dark' size='lg' block key={choiceds._id}>
-							A. {choiceds.choiceA}
-						</Button>
-					))}
-				</Col>
-			</Row>
+				<Row>
+					<Col style={{ marginTop: '4rem' }}>
+						{choiced.map((choiceds) => (
+							<Button
+								style={{ fontSize: '1.7rem' }}
+								variant='outline-dark'
+								size='lg'
+								block
+								key={choiceds._id}
+							>
+								A. {choiceds.choiceA}
+							</Button>
+						))}
+					</Col>
+				</Row>
 
-			<Row>
-				<Col>
-					{choiced.map((choiceds) => (
-						<Button variant='outline-dark' size='lg' block key={choiceds._id}>
-							B. {choiceds.choiceB}
-						</Button>
-					))}
-				</Col>
-			</Row>
+				<Row>
+					<Col>
+						{choiced.map((choiceds) => (
+							<Button
+								style={{ fontSize: '1.7rem', marginTop: '.5rem' }}
+								variant='outline-dark'
+								size='lg'
+								block
+								key={choiceds._id}
+							>
+								B. {choiceds.choiceB}
+							</Button>
+						))}
+					</Col>
+				</Row>
 
-			<Row>
-				<Col>
-					{choiced.map((choiceds) => (
-						<Button variant='outline-dark' size='lg' block key={choiceds._id}>
-							C. {choiceds.choiceC}
-						</Button>
-					))}
-				</Col>
-			</Row>
-			<Row>
-				<Col>
-					{choiced.map((choiceds) => (
-						<Button variant='outline-dark' size='lg' block key={choiceds._id}>
-							D. {choiceds.choiceD}
-						</Button>
-					))}
-				</Col>
-			</Row>
-			<br />
-			{/* Show Answer Button */}
-			<Row>
-				<Col>
-					<Button
-						variant='secondary'
-						size='lg'
-						block
-						onClick={() => setShowAns(!showAns)}
-					>
-						Answer
-					</Button>
-
-					{showAns && (
-						<div
-							className='ans'
-							style={{ textAlign: 'center', fontSize: '8rem' }}
+				<Row>
+					<Col>
+						{choiced.map((choiceds) => (
+							<Button
+								style={{
+									fontSize: '1.7rem',
+									marginTop: '.5rem',
+								}}
+								variant='outline-dark'
+								size='lg'
+								block
+								key={choiceds._id}
+							>
+								C. {choiceds.choiceC}
+							</Button>
+						))}
+					</Col>
+				</Row>
+				<Row>
+					<Col>
+						{choiced.map((choiceds) => (
+							<Button
+								style={{ fontSize: '1.7rem', marginTop: '.5rem' }}
+								variant='outline-dark'
+								size='lg'
+								block
+								key={choiceds._id}
+							>
+								D. {choiceds.choiceD}
+							</Button>
+						))}
+					</Col>
+				</Row>
+				<br />
+				{/* Show Answer Button */}
+				<Row>
+					<Col>
+						<Button
+							style={{ marginTop: '2rem' }}
+							variant='secondary'
+							size='lg'
+							block
+							onClick={() => setShowAns(!showAns)}
 						>
-							{choiced.map((choiceds) => (
-								<h2 key={choiceds._id}>{choiceds.answer}</h2>
-							))}
-						</div>
-					)}
-				</Col>
-			</Row>
-		</Container>
+							Answer
+						</Button>
+
+						{showAns && (
+							<div
+								className='ans'
+								style={{ textAlign: 'center', fontSize: '8rem' }}
+							>
+								{choiced.map((choiceds) => (
+									<h2 key={choiceds._id}>{choiceds.answer}</h2>
+								))}
+							</div>
+						)}
+					</Col>
+				</Row>
+			</Container>
+		</>
 	);
 }

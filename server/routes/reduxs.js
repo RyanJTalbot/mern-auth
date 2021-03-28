@@ -1,13 +1,15 @@
-const router = require('express').Router();
+const express = require('express');
+let router = express.Router();
 let Redux = require('../models/reduxModel');
 
 router.route('/').get((req, res) => {
-	//to get one data set at a time I used Card.find().limit(1)
+	//to get one data set at a time I used Redux.find().limit(1)
 
 	// Below code is used to get just one data set
-	Redux.aggregate([{ $sample: { size: 1 } }])
-		// Redux.find()
-		.then((redux) => res.json(redux))
+	// Redux.aggregate([{ $sample: { size: 1 } }])
+	Redux.find()
+
+		.then((reduxs) => res.json(reduxs))
 		.catch((err) => res.status(400).json('Error: ' + err));
 });
 
@@ -41,7 +43,7 @@ router.route('/add').post((req, res) => {
 });
 
 router.route('/:id').delete((req, res) => {
-	Redux.findByIdAndDelete(req.params.id).then(() => res.json('Redux deleted.'));
+	Redux.findByIdAndDelete(req.params.id).then(() => res.json('Card deleted.'));
 });
 
 router.route('/update/:id').post((req, res) => {

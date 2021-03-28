@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
 import classnames from 'classnames';
 import Navbarz from '../layout/Navbarz';
+import Footer from '../Footer';
 
 class Register extends Component {
 	constructor() {
@@ -57,22 +58,27 @@ class Register extends Component {
 				<Navbarz />
 				<div className='container'>
 					<div className='row'>
-						<div className='col s8 offset-s2' style={{ paddingLeft: '11.250px', fontSize:'2rem' }}>
-							
-							<div className='col s12' style={{ textAlign:'center', marginTop:'4rem' }}>
-								<h4 style={{fontSize:'3rem'}}>
+						<div
+							className='col s8 offset-s2'
+							style={{ paddingLeft: '11.250px', fontSize: '2rem' }}
+						>
+							<div
+								className='col s12'
+								style={{ textAlign: 'center', marginTop: '4rem' }}
+							>
+								<h4 style={{ fontSize: '3rem' }}>
 									<b>Register</b> below
 								</h4>
 								<p className='grey-text text-darken-1'>
 									Already have an account? <Link to='/login'>Log in</Link>
 								</p>
 							</div>
-							<hr style={{margin:'3rem'}}></hr>
-							<form noValidate onSubmit={this.onSubmit} >
-								<div style={{marginLeft:'32%', marginTop:'1rem'}}>
-								<label htmlFor='name'>Name: </label>
+							<hr style={{ margin: '3rem' }}></hr>
+							<form noValidate onSubmit={this.onSubmit}>
+								<div style={{ marginLeft: '32%', marginTop: '1rem' }}>
+									<label htmlFor='name'>Name: </label>
 									<input
-									style={{marginLeft:'1rem'}}
+										style={{ marginLeft: '1rem' }}
 										onChange={this.onChange}
 										value={this.state.name}
 										error={errors.name}
@@ -82,13 +88,13 @@ class Register extends Component {
 											invalid: errors.name,
 										})}
 									/>
-									
+
 									<span className='red-text'>{errors.name}</span>
 								</div>
-								<div style={{marginLeft:'32%', marginTop:'1rem'}}>
-								<label htmlFor='email'>Email: </label>
+								<div style={{ marginLeft: '32%', marginTop: '1rem' }}>
+									<label htmlFor='email'>Email: </label>
 									<input
-									style={{marginLeft:'1.5rem'}}
+										style={{ marginLeft: '1.5rem' }}
 										onChange={this.onChange}
 										value={this.state.email}
 										error={errors.email}
@@ -98,13 +104,13 @@ class Register extends Component {
 											invalid: errors.email,
 										})}
 									/>
-									
+
 									<span className='red-text'>{errors.email}</span>
 								</div>
-								<div style={{marginLeft:'29%' , marginTop:'1rem'}}>
-								<label htmlFor='password'>Password: </label>
+								<div style={{ marginLeft: '29%', marginTop: '1rem' }}>
+									<label htmlFor='password'>Password: </label>
 									<input
-									style={{ marginLeft: '1.2rem'}}
+										style={{ marginLeft: '1.2rem' }}
 										onChange={this.onChange}
 										value={this.state.password}
 										error={errors.password}
@@ -114,13 +120,13 @@ class Register extends Component {
 											invalid: errors.password,
 										})}
 									/>
-									
+
 									<span className='red-text'>{errors.password}</span>
 								</div>
-								<div style={{marginLeft:'19%', marginTop:'1rem'}}>
-								<label htmlFor='password2'>Confirm Password: </label>
+								<div style={{ marginLeft: '19%', marginTop: '1rem' }}>
+									<label htmlFor='password2'>Confirm Password: </label>
 									<input
-									style={{marginLeft:'.8rem'}}
+										style={{ marginLeft: '.8rem' }}
 										onChange={this.onChange}
 										value={this.state.password2}
 										error={errors.password2}
@@ -130,19 +136,18 @@ class Register extends Component {
 											invalid: errors.password2,
 										})}
 									/>
-									
+
 									<span className='red-text'>{errors.password2}</span>
 								</div>
-								<div style={{textAlign:'center'}} >
+								<div style={{ textAlign: 'center' }}>
 									<button
 										style={{
 											width: '150px',
 											borderRadius: '3px',
 											letterSpacing: '1.5px',
 											marginTop: '5rem',
-											fontSize:'2rem',
-											border:'1px solid black'
-											
+											fontSize: '2rem',
+											border: '1px solid black',
 										}}
 										type='submit'
 										className='btn btn-large waves-effect waves-light hoverable blue accent-3'
@@ -154,6 +159,7 @@ class Register extends Component {
 						</div>
 					</div>
 				</div>
+				<Footer />
 			</div>
 		);
 	}

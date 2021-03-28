@@ -10,7 +10,7 @@ export default function ReduxCards() {
 	// Axios async connection to backend
 	const getChoices = async () => {
 		try {
-			const daChoice = await axios.get('http://localhost:8000/redux');
+			const daChoice = await axios.get('http://localhost:8000/reduxs');
 
 			// Set Data
 			setChoices(daChoice.data);
