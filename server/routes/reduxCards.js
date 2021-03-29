@@ -2,9 +2,7 @@ var express = require('express');
 var router = express.Router();
 let Redux = require('../models/reduxModel');
 
-router.route('/').get((req, res) => {
-	//to get one data set at a time I used Redux.find().limit(1)
-
+router.get('/', (req, res) => {
 	// Below code is used to get just one data set
 	Redux.aggregate([{ $sample: { size: 1 } }])
 		// Redux.find()

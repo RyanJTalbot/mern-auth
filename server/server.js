@@ -9,6 +9,9 @@ const users = require('./routes/users');
 const cardsRouter = require('./routes/cards');
 const reduxRouter = require('./routes/reduxs');
 const mongRouter = require('./routes/moexnode');
+const npmRouter = require('./routes/npmCards');
+const expressRouter = require('./routes/expressCards');
+const javascriptRouter = require('./routes/javascriptCards');
 
 const port = process.env.PORT || 8000;
 
@@ -55,6 +58,15 @@ app.use('/reduxs', reduxRouter);
 
 // Connect to mongo
 app.use('/mongs', mongRouter);
+
+// Connect to npm
+app.use('/npms', npmRouter);
+
+// Connect to express
+app.use('/expresses', expressRouter);
+
+// Connect to Javascript
+app.use('/javascripts', javascriptRouter);
 
 // if (process.env.NODE_ENV === 'production') {
 // 	app.use(express.static(path.join(__dirname, '/frontend/build')));

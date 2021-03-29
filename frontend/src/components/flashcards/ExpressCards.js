@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
-export default function ReduxCards() {
+export default function ExpressCards() {
 	// useState Hooks
 	const [choiced, setChoices] = useState([]);
 	const [showAns, setShowAns] = useState(false);
@@ -10,7 +10,7 @@ export default function ReduxCards() {
 	// Axios async connection to backend
 	const getChoices = async () => {
 		try {
-			const daChoice = await axios.get('http://localhost:8000/reduxs');
+			const daChoice = await axios.get('http://localhost:8000/expresses');
 
 			// Set Data
 			setChoices(daChoice.data);

@@ -7,6 +7,15 @@ import { setCurrentUser, logoutUser } from './actions/authActions';
 import { Provider } from 'react-redux';
 import store from './store';
 
+// Create Card Routes
+import CreateReduxCard from './components/flashcards/createCards/CreateReduxCard';
+import CreateNPMCard from './components/flashcards/createCards/CreateNPMCard';
+import CreateJavaScriptCard from './components/flashcards/createCards/CreateJavaScriptCard';
+import CreateExpressCard from './components/flashcards/createCards/CreateExpressCard';
+
+import NPMPage from './pages/NPMPage';
+import JavaScriptPage from './pages/JavaScriptPage';
+import ExpressPage from './pages/ExpressPage';
 import ReduxPage from './pages/ReduxPage';
 import FcardPage from './pages/FcardPage';
 import Landing from './components/layout/Landing';
@@ -49,7 +58,15 @@ class App extends Component {
 						<Switch>
 							<PrivateRoute exact path='/dashboard' component={Dashboard} />
 							<PrivateRoute exact path='/cards' component={FcardPage} />
-							{/* <PrivateRoute exact path='/reduxs' component={ReduxPage} /> */}
+							<PrivateRoute exact path='/reduxs' component={ReduxPage} />
+							<PrivateRoute exact path='/expresses' component={ExpressPage} />
+							<PrivateRoute exact path='/npms' component={NPMPage} />
+							<PrivateRoute
+								exact
+								path='/javascripts'
+								component={JavaScriptPage}
+							/>
+							{/* <PrivateRoute exact path='/add' component={CreateNPMCard} /> */}
 						</Switch>
 					</div>
 				</Router>

@@ -1,21 +1,19 @@
-const express = require('express');
-let router = express.Router();
-let Redux = require('../models/reduxModel');
+const router = require('express').Router();
+let JavaScript = require('../models/javascriptModel');
 
 router.route('/').get((req, res) => {
-	//to get one data set at a time I used Redux.find().limit(1)
+	//to get one data set at a time I used Card.find().limit(1)
 
 	// Below code is used to get just one data set
-	Redux.aggregate([{ $sample: { size: 1 } }])
-		// Redux.find()
-
-		.then((reduxs) => res.json(reduxs))
+	JavaScript.aggregate([{ $sample: { size: 1 } }])
+		// Card.find()
+		.then((JavaScripts) => res.json(JavaScripts))
 		.catch((err) => res.status(400).json('Error: ' + err));
 });
 
 router.route('/:id').get((req, res) => {
-	Redux.findById(req.params.id)
-		.then((redux) => res.json(redux))
+	JavaScript.findById(req.params.id)
+		.then((javascript) => res.json(javascript))
 		.catch((err) => res.status(400).json('Error: ' + err));
 });
 
@@ -27,7 +25,7 @@ router.route('/add').post((req, res) => {
 	const choiceD = req.body.choiceD;
 	const answer = req.body.answer;
 
-	const newRedux = new Redux({
+	const newJavaScript = new JavaScript({
 		question,
 		choiceA,
 		choiceB,
@@ -36,28 +34,30 @@ router.route('/add').post((req, res) => {
 		answer,
 	});
 
-	newRedux
+	newJavaScript
 		.save()
 		.then(() => res.json('Card added!'))
 		.catch((err) => res.status(400).json('Error: ' + err));
 });
 
 router.route('/:id').delete((req, res) => {
-	Redux.findByIdAndDelete(req.params.id).then(() => res.json('Card deleted.'));
+	JavaScript.findByIdAndDelete(req.params.id).then(() =>
+		res.json('JavaScript deleted.'),
+	);
 });
 
 router.route('/update/:id').post((req, res) => {
-	Redux.findById(req.params.id)
-		.then((redux) => {
-			redux.question = req.body.question;
-			redux.choiceA = req.body.choiceA;
-			redux.choiceB = req.body.choiceB;
-			redux.choiceC = req.body.choiceC;
-			redux.choiceD = req.body.choiceD;
+	JavaScript.findById(req.params.id)
+		.then((javascript) => {
+			javascript.question = req.body.question;
+			javascript.choiceA = req.body.choiceA;
+			javascript.choiceB = req.body.choiceB;
+			javascript.choiceC = req.body.choiceC;
+			javascript.choiceD = req.body.choiceD;
 
-			redux.answer = req.body.answer;
+			javascript.answer = req.body.answer;
 
-			redux
+			javascript
 				.save()
 				.then(() => res.json('Card Updated!'))
 				.catch((err) => res.status(400).json('Error: ' + err));
