@@ -8,12 +8,14 @@ const cors = require('cors');
 const users = require('./routes/users');
 const cardsRouter = require('./routes/cards');
 const reduxRouter = require('./routes/reduxs');
-const mongRouter = require('./routes/moexnode');
 const npmRouter = require('./routes/npmCards');
 const expressRouter = require('./routes/expressCards');
 const javascriptRouter = require('./routes/javascriptCards');
+const reactRouter = require('./routes/reactCards');
+const mongoRouter = require('./routes/mongoCards');
+const nodeRouter = require('./routes/nodeCards');
 
-const port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 
@@ -56,9 +58,6 @@ app.use('/cards', cardsRouter);
 // Connect to redux
 app.use('/reduxs', reduxRouter);
 
-// Connect to mongo
-app.use('/mongs', mongRouter);
-
 // Connect to npm
 app.use('/npms', npmRouter);
 
@@ -68,6 +67,15 @@ app.use('/expresses', expressRouter);
 // Connect to Javascript
 app.use('/javascripts', javascriptRouter);
 
+// Connect to React
+app.use('/reacts', reactRouter);
+
+// Connect to Mongo
+app.use('/mongos', mongoRouter);
+
+// Connect to Mongo
+app.use('/nodes', nodeRouter);
+
 // if (process.env.NODE_ENV === 'production') {
 // 	app.use(express.static(path.join(__dirname, '/frontend/build')));
 
@@ -76,4 +84,9 @@ app.use('/javascripts', javascriptRouter);
 // 	);
 // }
 
-app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+// if in production
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('frontend/build'));
+}
+
+app.listen(PORT, () => console.log(`Server up and running on port ${PORT} !`));

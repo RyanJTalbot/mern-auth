@@ -1,18 +1,20 @@
 import React from 'react';
+import MongoCards from '../components/flashcards/MongoCards';
+import NextQuestion from '../components/flashcards/NextQuestion';
 import NavbarUser from '../components/layout/NavbarUser';
-import CreateReduxCard from '../components/flashcards/CreateReduxCard';
 import Footer from '../components/Footer';
 
-class FcardPage extends React.Component {
+class MongoPage extends React.Component {
 	render() {
 		return (
 			<div className='card-page'>
 				<NavbarUser />
-				<CreateReduxCard />
+				<MongoCards />
+				<NextQuestion />
 				<Footer />
 			</div>
 		);
 	}
 }
 
-export default FcardPage;
+export default MongoPage;

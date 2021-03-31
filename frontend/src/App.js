@@ -12,7 +12,13 @@ import CreateReduxCard from './components/flashcards/createCards/CreateReduxCard
 import CreateNPMCard from './components/flashcards/createCards/CreateNPMCard';
 import CreateJavaScriptCard from './components/flashcards/createCards/CreateJavaScriptCard';
 import CreateExpressCard from './components/flashcards/createCards/CreateExpressCard';
+import CreateReactCard from './components/flashcards/createCards/CreateReactCard';
+import CreateMongoCard from './components/flashcards/createCards/CreateMongoCard';
+import CreateNodeCard from './components/flashcards/createCards/CreateNodeCard';
 
+import NodePage from './pages/NodePage';
+import MongoPage from './pages/MongoPage';
+import ReactPage from './pages/ReactPage';
 import NPMPage from './pages/NPMPage';
 import JavaScriptPage from './pages/JavaScriptPage';
 import ExpressPage from './pages/ExpressPage';
@@ -66,7 +72,13 @@ class App extends Component {
 								path='/javascripts'
 								component={JavaScriptPage}
 							/>
-							{/* <PrivateRoute exact path='/add' component={CreateNPMCard} /> */}
+							<PrivateRoute exact path='/reacts' component={ReactPage} />
+							<PrivateRoute exact path='/mongos' component={MongoPage} />
+							<PrivateRoute exact path='/nodes' component={NodePage} />
+
+							{/* To populate a new flashcards set use the following and change the Create Card */}
+
+							<PrivateRoute exact path='/add' component={CreateMongoCard} />
 						</Switch>
 					</div>
 				</Router>

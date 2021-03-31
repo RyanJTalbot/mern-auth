@@ -8,15 +8,17 @@
 
 #### - Backend - ~~I don't think current method of getting data from backend is most efficient - look for alternatives.~~
 
-#### - Flash card groups (maybe)
+#### - ~~Flash card groups (maybe)~~
 
-### - When flashcard is clicked it changes color
+#### - When flashcard is clicked it changes color (I have no idea how to do this)
 
 - react
-- redux
-- javascript
+- ~~redux~~
+- ~~javascript~~
 - node
 - html and css
+- ~~express~~
+- ~~npm~~
 
 ---
 
@@ -71,5 +73,3 @@ https://github.com/rishipr/mern-auth/
 https://github.com/dunky11/react-saas-template/blob/master/src/shared/components/NavigationDrawer.js
 
 https://dev.to/stlnick/how-to-deploy-a-full-stack-mern-app-with-heroku-netlify-ncb
-
-## maybe problem with redux route is a naming conflict or use of a reserve word?

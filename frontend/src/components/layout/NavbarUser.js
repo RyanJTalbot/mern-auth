@@ -14,10 +14,28 @@ class NavbarUser extends Component {
 				<Nav className='mr-auto'>
 					<Nav.Link href='/'>Home | </Nav.Link>
 					<Nav.Link href='/cards'> Flashcards |</Nav.Link>
-					<Nav.Link href='/reduxs'> Redux |</Nav.Link>
-					<Nav.Link href='/expresses'> Express |</Nav.Link>
-					<Nav.Link href='/javascripts'> JavaScript |</Nav.Link>
-					<Nav.Link href='/npms'> NPM |</Nav.Link>
+					<Nav.Link href='/mongos'>
+						{' '}
+						<strong>M</strong>ongoDB |
+					</Nav.Link>
+					<Nav.Link href='/expresses'>
+						{' '}
+						<strong>E</strong>xpress |
+					</Nav.Link>
+					<Nav.Link href='/reacts'>
+						{' '}
+						<strong>R</strong>eact |
+					</Nav.Link>
+					<Nav.Link href='/nodes'>
+						{' '}
+						<strong>N</strong>ode |
+					</Nav.Link>
+
+					{/* <Nav.Link href='/javascripts'> JavaScript |</Nav.Link>
+					<Nav.Link href='/npms'> NPM |</Nav.Link> */}
+					{/* <Nav.Link href='/reduxs'> Redux |</Nav.Link> */}
+
+					{/* when adding a new card set un-comment the following */}
 					{/* <Nav.Link href='/add'> Add |</Nav.Link> */}
 				</Nav>
 			</Navbar>
