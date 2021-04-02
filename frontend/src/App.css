@@ -32,11 +32,18 @@
 }
 
 .user-navbar {
-	font-size: 2rem;
+	font-size: 90px;
 	background-color: brown;
 }
 
-@media all and (max-width: 600px) {
+/* @media all and (max-width: 600px) {
+	.user-navbar {
+		font-size: 1rem;
+		background-color: brown;
+	}
+} */
+
+@media (max-width: 976px) {
 	.user-navbar {
 		font-size: 1rem;
 		background-color: brown;

@@ -12,10 +12,10 @@
 
 #### - When flashcard is clicked it changes color (I have no idea how to do this)
 
-- react
+- ~~react~~
 - ~~redux~~
 - ~~javascript~~
-- node
+- ~~node~~
 - html and css
 - ~~express~~
 - ~~npm~~
@@ -47,10 +47,6 @@
 - Deploy Mern Stack application
 
 ### Miscellaneous :
-
-to add user/username to backend models, routes, and server.js
-
-if user/username is added to backend,then will have to use postman /POST to update database.
 
 https://stackoverflow.com/questions/59369295/how-to-change-background-color-when-i-click-the-button-using-react-hooks
 
