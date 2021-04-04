@@ -10,7 +10,7 @@ export default function MongoCards() {
 	// Axios async connection to backend
 	const getChoices = async () => {
 		try {
-			const daChoice = await axios.get('http://localhost:8000/mongos');
+			const daChoice = await axios.get('/mongos');
 
 			// Set Data
 			setChoices(daChoice.data);

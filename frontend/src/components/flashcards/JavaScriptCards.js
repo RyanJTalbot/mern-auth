@@ -10,7 +10,7 @@ export default function JavaScriptCards() {
 	// Axios async connection to backend
 	const getChoices = async () => {
 		try {
-			const daChoice = await axios.get('http://localhost:8000/javascripts');
+			const daChoice = await axios.get('/javascripts');
 
 			// Set Data
 			setChoices(daChoice.data);

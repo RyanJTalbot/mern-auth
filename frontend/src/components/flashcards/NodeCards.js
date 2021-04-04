@@ -10,7 +10,7 @@ export default function NodeCards() {
 	// Axios async connection to backend
 	const getChoices = async () => {
 		try {
-			const daChoice = await axios.get('http://localhost:8000/nodes');
+			const daChoice = await axios.get('/nodes');
 
 			// Set Data
 			setChoices(daChoice.data);

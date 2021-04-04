@@ -10,7 +10,7 @@ export default function NPMCards() {
 	// Axios async connection to backend
 	const getChoices = async () => {
 		try {
-			const daChoice = await axios.get('http://localhost:8000/npms');
+			const daChoice = await axios.get('/npms');
 
 			// Set Data
 			setChoices(daChoice.data);
