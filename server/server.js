@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
 const cors = require('cors');
@@ -15,7 +14,7 @@ const reactRouter = require('./routes/reactCards');
 const mongoRouter = require('./routes/mongoCards');
 const nodeRouter = require('./routes/nodeCards');
 
-const PORT = process.env.PORT || 12148;
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 
@@ -31,7 +30,7 @@ app.use(express.json());
 app.use(cors());
 
 // DB Config
-const db = require('./config/keys').mongoURI;
+const db = process.env.MONGODB_URI;
 
 // Connect to MongoDB
 mongoose
