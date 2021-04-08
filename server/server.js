@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
 const cors = require('cors');
+require('dotenv').config();
 
 const users = require('./routes/users');
 const cardsRouter = require('./routes/cards');
