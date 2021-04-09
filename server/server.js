@@ -35,11 +35,14 @@ const db = process.env.MONGODB_URI;
 
 // Connect to MongoDB
 mongoose
-	.connect(db, {
-		useUnifiedTopology: true,
-		useNewUrlParser: true,
-		useCreateIndex: true,
-	})
+	.connect(
+		'mongodb+srv://Admin:qwerty12345@cards.jug3a.mongodb.net/flashcards?retryWrites=true&w=majority',
+		{
+			useUnifiedTopology: true,
+			useNewUrlParser: true,
+			useCreateIndex: true,
+		},
+	)
 	.then(() => console.log('MongoDB successfully connected'))
 	.catch((err) => console.log(err));
 
