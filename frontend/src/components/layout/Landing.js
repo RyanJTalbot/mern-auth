@@ -2,8 +2,18 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Navbarz from './Navbarz';
 import Footer from '../Footer';
+import queryString from 'query-string';
+import GoogleAuth from '../oauth/GoogleAuth';
 
 class Landing extends Component {
+	componentDidMount() {
+		var query = queryString.parse(this.props.location.search);
+		if (query.token) {
+			window.localStorage.setItem('jwt', query.token);
+			this.props.history.push('/');
+		}
+	}
+
 	render() {
 		return (
 			<div>
@@ -12,7 +22,14 @@ class Landing extends Component {
 				<Container className='my-auto'>
 					<Row>
 						<Col>
-							<h1 className='landing-title' style={{textAlign:'center', marginTop:'8rem', marginBottom:'4rem'}}>
+							<h1
+								className='landing-title'
+								style={{
+									textAlign: 'center',
+									marginTop: '8rem',
+									marginBottom: '4rem',
+								}}
+							>
 								<b>MERN-STACK</b> Flashcard Application
 							</h1>
 						</Col>
@@ -25,16 +42,27 @@ class Landing extends Component {
 					<span>
 						<Row className='justify-content-md-center'>
 							<Col md='auto'>
-								<Button href='/register' variant='secondary' size='lg' style={{marginRight:'5rem', fontSize:'2rem'}}>
+								<Button
+									href='/register'
+									variant='secondary'
+									size='lg'
+									style={{ marginRight: '5rem', fontSize: '2rem' }}
+								>
 									Register
 								</Button>
 
-								<Button href='/login' variant='secondary' size='lg' style={{marginLeft:'5rem', fontSize:'2rem'}}>
+								<Button
+									href='/login'
+									variant='secondary'
+									size='lg'
+									style={{ marginLeft: '5rem', fontSize: '2rem' }}
+								>
 									Sign-In
 								</Button>
 							</Col>
 						</Row>
 					</span>
+					<GoogleAuth />
 				</Container>
 
 				{/* <div style={{ height: '75vh' }} className='container valign-wrapper'>
@@ -74,9 +102,8 @@ class Landing extends Component {
 						</div>
 					</div>
 				</div> */}
-				<Footer  />
+				<Footer />
 			</div>
-			
 		);
 	}
 }

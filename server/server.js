@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
 const cors = require('cors');
-require('dotenv').config();
 
 const users = require('./routes/users');
 const cardsRouter = require('./routes/cards');
@@ -14,6 +13,10 @@ const javascriptRouter = require('./routes/javascriptCards');
 const reactRouter = require('./routes/reactCards');
 const mongoRouter = require('./routes/mongoCards');
 const nodeRouter = require('./routes/nodeCards');
+
+require('dotenv').config({
+	path: path.join(__dirname, './process.env'),
+});
 
 const PORT = process.env.PORT || 8000;
 
@@ -35,14 +38,11 @@ const db = process.env.MONGODB_URI;
 
 // Connect to MongoDB
 mongoose
-	.connect(
-		'mongodb+srv://Admin:qwerty12345@cards.jug3a.mongodb.net/flashcards?retryWrites=true&w=majority',
-		{
-			useUnifiedTopology: true,
-			useNewUrlParser: true,
-			useCreateIndex: true,
-		},
-	)
+	.connect(db, {
+		useUnifiedTopology: true,
+		useNewUrlParser: true,
+		useCreateIndex: true,
+	})
 	.then(() => console.log('MongoDB successfully connected'))
 	.catch((err) => console.log(err));
 
@@ -78,6 +78,20 @@ app.use('/mongos', mongoRouter);
 
 // Connect to Mongo
 app.use('/nodes', nodeRouter);
+
+/* GET Google Authentication API. */
+app.get(
+	'/auth/google',
+	passport.authenticate('google', { scope: ['profile', 'email'] }),
+);
+app.get(
+	'/auth/google/callback',
+	passport.authenticate('google', { failureRedirect: '/', session: false }),
+	function (req, res) {
+		var token = req.user.token;
+		res.redirect('http://localhost:3000?token=' + token);
+	},
+);
 
 // for production
 
