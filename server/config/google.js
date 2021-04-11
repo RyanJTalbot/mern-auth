@@ -1,28 +1,73 @@
 const passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const express = require('express');
+const mongoose = require('mongoose');
+const User = require('../models/User');
 
-passport.serializeUser(function (user, done) {
-	done(null, user);
+// config dotenv
+require('dotenv').config({
+	path: path.join(__dirname, './process.env'),
 });
 
-passport.deserializeUser(function (user, done) {
-	done(null, user);
-});
+const app = express();
 
 passport.use(
 	new GoogleStrategy(
 		{
-			clientID: process.env.GOOGLE_CLIENT_ID,
-			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-			callbackURL: 'http://localhost:8000/auth/google/callback',
+			clientID: process.env.CLIENT_ID,
+			clientSecret: process.env.CLIENT_SECRET,
+			callbackURL: '/auth/google/callback',
 		},
-		function (accessToken, refreshToken, profile, done) {
-			var userData = {
-				email: profile.emails[0].value,
-				name: profile.displayName,
-				token: accessToken,
-			};
-			done(null, userData);
+		(accessToken) => {
+			console.log(accessToken);
 		},
 	),
 );
+
+app.get(
+	'/auth/google',
+	passport.authenticate('google', {
+		scope: ['profile', 'email'],
+	}),
+);
+
+const PORT = process.env.PORT || 8000;
+app.listen(PORT);
+
+// passport.serializeUser((user, done) => {
+// 	done(null, user.id);
+// });
+
+// passport.deserializeUser((id, done) => {
+// 	User.findById(id).then((user) => {
+// 		done(null, user);
+// 	});
+// });
+
+// passport.use(
+// 	new GoogleStrategy(
+// 		{
+// 			clientID: process.env.CLIENT_ID,
+// 			clientSecret: process.env.CLIENT_SECRET,
+// 			callbackURL: '/auth/google/callback',
+// 		},
+// 		(accessToken, refreshToken, profile, done) => {
+// 			// Passport callback function
+// 			User.findOne({ googleId: profile.id }).then((currentUser) => {
+// 				// User already exsists
+// 				if (currentUser) {
+// 					done(null, currentUser);
+// 				} else {
+// 					// New user
+// 					new User({
+// 						googleId: profile.id,
+// 					})
+// 						.save()
+// 						.then((newUser) => {
+// 							done(null, newUser);
+// 						});
+// 				}
+// 			});
+// 		},
+// 	),
+// );

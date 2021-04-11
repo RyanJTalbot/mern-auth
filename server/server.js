@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
 const cors = require('cors');
+const keys = require('./config/keys');
+const cookieSession = require('cookie-session');
 
 const users = require('./routes/users');
 const cardsRouter = require('./routes/cards');
@@ -13,6 +15,8 @@ const javascriptRouter = require('./routes/javascriptCards');
 const reactRouter = require('./routes/reactCards');
 const mongoRouter = require('./routes/mongoCards');
 const nodeRouter = require('./routes/nodeCards');
+
+require('./services/passport');
 
 require('dotenv').config({
 	path: path.join(__dirname, './process.env'),
@@ -46,14 +50,26 @@ mongoose
 	.then(() => console.log('MongoDB successfully connected'))
 	.catch((err) => console.log(err));
 
+// Cookie Swssion
+app.use(
+	cookieSession({
+		maxAge: 30 * 24 * 60 * 60 * 1000,
+		keys: [keys.cookieKey],
+	}),
+);
+
 // Passport middleware
 app.use(passport.initialize());
+app.use(passport.session());
 
 // Passport config
 require('./config/passport')(passport);
 
 // Routes
 app.use('/users', users);
+
+// Google Auth
+app.use('/auths', users);
 
 // Connect to cards
 app.use('/cards', cardsRouter);
@@ -79,19 +95,7 @@ app.use('/mongos', mongoRouter);
 // Connect to Mongo
 app.use('/nodes', nodeRouter);
 
-/* GET Google Authentication API. */
-app.get(
-	'/auth/google',
-	passport.authenticate('google', { scope: ['profile', 'email'] }),
-);
-app.get(
-	'/auth/google/callback',
-	passport.authenticate('google', { failureRedirect: '/', session: false }),
-	function (req, res) {
-		var token = req.user.token;
-		res.redirect('http://localhost:3000?token=' + token);
-	},
-);
+require('./routes/authRoutes')(app);
 
 // for production
 
