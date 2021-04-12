@@ -6,8 +6,8 @@ export default class GoogleAuth extends Component {
 		return (
 			<div>
 				<p>
-					<a href='/auth/google' class='button'>
-						<div>
+					<a href='/auth/google' className='button'>
+						<div className='button-text'>
 							<span class='svgIcon t-popup-svg'>
 								<svg
 									class='svgIcon-use'
@@ -35,7 +35,7 @@ export default class GoogleAuth extends Component {
 									</g>
 								</svg>
 							</span>
-							<span class='button-label'>Sign in with Google</span>
+							<span className='button-label'>Sign in with Google</span>
 						</div>
 					</a>
 				</p>

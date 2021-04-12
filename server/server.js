@@ -6,6 +6,7 @@ const cors = require('cors');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 
+const githubAuth = require('./routes/githubAuth');
 const users = require('./routes/users');
 const cardsRouter = require('./routes/cards');
 const reduxRouter = require('./routes/reduxs');
@@ -15,7 +16,7 @@ const javascriptRouter = require('./routes/javascriptCards');
 const reactRouter = require('./routes/reactCards');
 const mongoRouter = require('./routes/mongoCards');
 const nodeRouter = require('./routes/nodeCards');
-
+require('./models/googleUserModel');
 require('./services/passport');
 
 require('dotenv').config({
@@ -64,6 +65,9 @@ app.use(passport.session());
 
 // Passport config
 require('./config/passport')(passport);
+
+// Github auth ?
+// app.use('/GithubUser', githubAuth);
 
 // Routes
 app.use('/users', users);

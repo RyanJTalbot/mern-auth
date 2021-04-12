@@ -41,6 +41,16 @@
 
 ---
 
+### Add:
+
+- Google auth Schema information
+  - googleId
+  - imageUrl
+  - email
+  - name
+  - givenName
+  - familyName
+
 ### Research:
 
 - Procfile

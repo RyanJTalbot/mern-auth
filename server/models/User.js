@@ -25,7 +25,6 @@ const UserSchema = new Schema({
 		type: String,
 		required: true,
 	},
-	googleId: String,
 	date: {
 		type: Date,
 		default: Date.now,

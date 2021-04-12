@@ -4,6 +4,7 @@ import Navbarz from './Navbarz';
 import Footer from '../Footer';
 import queryString from 'query-string';
 import GoogleAuth from '../oauth/GoogleAuth';
+// import GoogleLogin from '../../components/auth/GoogleLogin';
 
 class Landing extends Component {
 	componentDidMount() {
@@ -62,7 +63,11 @@ class Landing extends Component {
 							</Col>
 						</Row>
 					</span>
-					<GoogleAuth />
+					<div style={{ textAlign: 'center' }}>
+						<GoogleAuth />
+					</div>
+
+					{/* <GoogleLogin /> */}
 				</Container>
 
 				{/* <div style={{ height: '75vh' }} className='container valign-wrapper'>

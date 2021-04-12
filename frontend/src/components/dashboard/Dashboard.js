@@ -27,8 +27,10 @@ class Dashboard extends Component {
 								<b>Hi,</b> {user.name.split(' ')[0]}
 								<p className='flow-text grey-text text-darken-1'>
 									You are logged into the MERN flashcard app{' '}
-									<span style={{ fontFamily: 'monospace' }}>by </span>RyanJT.dev
-									👏
+									<p>
+										<span style={{ fontFamily: 'monospace' }}>by </span>
+										RyanJT.dev
+									</p>
 								</p>
 							</h4>
 							<button
