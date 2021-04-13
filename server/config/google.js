@@ -31,7 +31,7 @@ app.get(
 	}),
 );
 
-const PORT = process.env.PORT || 8000;
+const PORT = 'http://127.0.0.1:8080';
 app.listen(PORT);
 
 // passport.serializeUser((user, done) => {
