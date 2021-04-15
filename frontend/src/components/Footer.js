@@ -1,9 +1,17 @@
-import React from "react";
+import React from 'react';
 
 const Footer = () => (
-  <div className="footer" style={{marginTop:'30rem', textAlign:'center', fontSize:'2rem'}}>
-    <p>RyanJT.dev</p>
-  </div>
+	<div
+		className='footer'
+		style={{
+			marginTop: '30rem',
+			textAlign: 'center',
+			fontSize: '2rem',
+			fontFamily: 'Permanent Marker',
+		}}
+	>
+		<a href='https://ryanjt.dev/'>RyanJT.dev</a>
+	</div>
 );
 
 export default Footer;

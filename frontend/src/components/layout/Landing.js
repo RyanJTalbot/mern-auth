@@ -33,7 +33,7 @@ class Landing extends Component {
 									marginBottom: '4rem',
 								}}
 							>
-								<b style={{ paddingRight: '2rem', fontWeight: 'bold' }}>
+								<b style={{ paddingRight: '1.5rem', fontWeight: 'bold' }}>
 									MERN-STACK
 								</b>{' '}
 								Flashcard Application
