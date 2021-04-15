@@ -26,12 +26,17 @@ class Landing extends Component {
 							<h1
 								className='landing-title'
 								style={{
+									fontFamily: 'Permanent Marker',
+									fontWeight: 'lighter',
 									textAlign: 'center',
 									marginTop: '8rem',
 									marginBottom: '4rem',
 								}}
 							>
-								<b>MERN-STACK</b> Flashcard Application
+								<b style={{ paddingRight: '2rem', fontWeight: 'bold' }}>
+									MERN-STACK
+								</b>{' '}
+								Flashcard Application
 							</h1>
 						</Col>
 					</Row>

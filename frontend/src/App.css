@@ -3,12 +3,14 @@
 }
 
 .landing-text {
+	font-family: 'Permanent Marker', cursive;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 }
 
 .landing-title {
+	font-family: 'Permanent Marker', cursive;
 	display: block;
 	margin-top: 80px;
 }

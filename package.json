@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "mern flashcards made with the mern stack",
   "main": "server.js",
+  "engines": {
+    "node": "14.x",
+    "npm": "6.14.11"
+  },
   "scripts": {
     "start": "node server/server.js",
     "server": "nodemon server/server.js",
@@ -27,8 +31,6 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.3"
-  },
-    "engines": {
-      "node":"14.13.1"
-    }
+  }
+
 }
