@@ -9,7 +9,7 @@ passport.use(
 		{
 			clientID: process.env.GITHUB_CLIENTID,
 			clientSecret: process.env.GITHUB_CLIENTSECRET,
-			callbackURL: 'http://localhost:3000/auth/github/callback',
+			callbackURL: '/auth/github/callback',
 		},
 		function (accessToken, refreshToken, profile, cb) {
 			User.findOrCreate({ githubId: profile.id }, function (err, user) {

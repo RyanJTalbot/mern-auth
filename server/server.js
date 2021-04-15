@@ -109,4 +109,6 @@ app.get('/*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(PORT, () => console.log(`Server up and running on port ${PORT} !`));
+app.listen(PORT || 8000, () =>
+	console.log(`Server up and running on port ${PORT} !`),
+);
