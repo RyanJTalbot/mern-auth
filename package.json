@@ -2,6 +2,7 @@
   "name": "mern-auth",
   "version": "1.0.0",
   "description": "#### - ~~Style Homepage add login / signin~~",
+  "homepage": "https://mern-flashcard-app-ryanjt.herokuapp.com/",
   "engines": {
     "node": "14.x",
     "npm": "6.x"
@@ -21,7 +22,6 @@
   "bugs": {
     "url": "https://github.com/RyanJTalbot/mern-auth/issues"
   },
-  "homepage": "https://github.com/RyanJTalbot/mern-auth#readme",
   "dependencies": {
     "debug": "^4.3.1"
   }
