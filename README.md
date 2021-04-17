@@ -12,6 +12,10 @@
 
 #### - When flashcard is clicked it changes color (I have no idea how to do this)
 
+### problem - https://devcenter.heroku.com/articles/troubleshooting-node-deploys
+
+#### Incorrect Port Setup heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" status=503 bytes= protocol=https
+
 - ~~react~~
 - ~~redux~~
 - ~~javascript~~
@@ -79,3 +83,5 @@ https://github.com/rishipr/mern-auth/
 https://github.com/dunky11/react-saas-template/blob/master/src/shared/components/NavigationDrawer.js
 
 https://dev.to/stlnick/how-to-deploy-a-full-stack-mern-app-with-heroku-netlify-ncb
+
+https://reactscript.com/social-login-buttons-for-react/
