@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
 const cors = require('cors');
-const keys = require('./config/keys');
-const cookieSession = require('cookie-session');
+// const keys = require('./config/keys');
+// const cookieSession = require('cookie-session');
 
 const githubAuth = require('./routes/githubAuth');
 const users = require('./routes/users');
@@ -52,12 +52,12 @@ mongoose
 	.catch((err) => console.log(err));
 
 // Cookie Swssion
-app.use(
-	cookieSession({
-		maxAge: 30 * 24 * 60 * 60 * 1000,
-		keys: [keys.cookieKey],
-	}),
-);
+// app.use(
+// 	cookieSession({
+// 		maxAge: 30 * 24 * 60 * 60 * 1000,
+// 		keys: [keys.cookieKey],
+// 	}),
+// );
 
 // Passport middleware
 app.use(passport.initialize());
