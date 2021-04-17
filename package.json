@@ -1,0 +1,25 @@
+{
+  "name": "mern-auth",
+  "version": "1.0.0",
+  "description": "#### - ~~Style Homepage add login / signin~~",
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanJTalbot/mern-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyanJTalbot/mern-auth/issues"
+  },
+  "homepage": "https://github.com/RyanJTalbot/mern-auth#readme"
+}
