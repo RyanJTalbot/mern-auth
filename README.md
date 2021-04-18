@@ -91,3 +91,5 @@ https://reactscript.com/social-login-buttons-for-react/
 # https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack
 
 https://github.com/mars/heroku-cra-node
+
+heroku config:set JS_RUNTIME_TARGET_BUNDLE='/app/frontend/build/static/js/\*.js'
