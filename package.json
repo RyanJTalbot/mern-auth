@@ -27,5 +27,9 @@
   "dependencies": {
     "concurrently": "^6.0.2",
     "debug": "^4.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-plugin-react": "^7.23.2"
   }
 }
