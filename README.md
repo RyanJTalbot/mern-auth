@@ -86,40 +86,8 @@ https://dev.to/stlnick/how-to-deploy-a-full-stack-mern-app-with-heroku-netlify-n
 
 https://reactscript.com/social-login-buttons-for-react/
 
-remote: ! ERROR: Application not supported by 'heroku/nodejs' buildpack
-remote: !  
-remote: ! The 'heroku/nodejs' buildpack is set on this application, but was
-remote: ! unable to detect a Node.js codebase.
-remote: !  
-remote: ! A Node.js app on Heroku requires a 'package.json' at the root of
-remote: ! the directory structure.
-remote: !  
-remote: ! If you are trying to deploy a Node.js application, ensure that this
-remote: ! file is present at the top level directory. This directory has the
-remote: ! following files:
-remote: !  
-remote: ! frontend/
-remote: ! Procfile
-remote: ! README.md
-remote: ! server/
-remote: !  
-remote: ! If you are trying to deploy an application written in another
-remote: ! language, you need to change the list of buildpacks set on your
-remote: ! Heroku app using the 'heroku buildpacks' command.
-remote: !  
-remote: ! For more information, refer to the following documentation:
-remote: ! https://devcenter.heroku.com/articles/buildpacks
-remote: ! https://devcenter.heroku.com/articles/nodejs-support#activation
-remote:
-remote:
-remote: More info: https://devcenter.heroku.com/articles/buildpacks#detection-failure
-remote:
-remote: ! Push failed
-remote: Verifying deploy...
-remote:
-remote: ! Push rejected to mern-flashcard-app-ryanjt.
-remote:
-To https://git.heroku.com/mern-flashcard-app-ryanjt.git
-! [remote rejected] main -> main (pre-receive hook declined)
-error: failed to push some refs to 'https://git.heroku.com/mern-flashcard-app-ryanjt.git'
-Ryans-MacBook-Pro:mern-auth ryantalbot\$
+# https://docs.netlify.com/configure-builds/common-configurations/#angular
+
+# https://elements.heroku.com/buildpacks/mars/create-react-app-buildpack
+
+https://github.com/mars/heroku-cra-node
