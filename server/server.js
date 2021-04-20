@@ -19,9 +19,7 @@ const nodeRouter = require('./routes/nodeCards');
 require('./models/googleUserModel');
 require('./services/passport');
 
-require('dotenv').config({
-	path: path.join(__dirname, './process.env'),
-});
+require('dotenv').config();
 
 const PORT = process.env.PORT || 8000;
 
@@ -124,4 +122,6 @@ if (process.env.NODE_ENV == 'production') {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')),
 	);
 }
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(process.env.PORT, () =>
+	console.log(`Server started on port ${PORT}`),
+);
