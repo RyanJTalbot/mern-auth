@@ -8,13 +8,13 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 // Create Card Routes
-import CreateReduxCard from './components/flashcards/createCards/CreateReduxCard';
-import CreateNPMCard from './components/flashcards/createCards/CreateNPMCard';
-import CreateJavaScriptCard from './components/flashcards/createCards/CreateJavaScriptCard';
-import CreateExpressCard from './components/flashcards/createCards/CreateExpressCard';
-import CreateReactCard from './components/flashcards/createCards/CreateReactCard';
-import CreateMongoCard from './components/flashcards/createCards/CreateMongoCard';
-import CreateNodeCard from './components/flashcards/createCards/CreateNodeCard';
+// import CreateReduxCard from './components/flashcards/createCards/CreateReduxCard';
+// import CreateNPMCard from './components/flashcards/createCards/CreateNPMCard';
+// import CreateJavaScriptCard from './components/flashcards/createCards/CreateJavaScriptCard';
+// import CreateExpressCard from './components/flashcards/createCards/CreateExpressCard';
+// import CreateReactCard from './components/flashcards/createCards/CreateReactCard';
+// import CreateMongoCard from './components/flashcards/createCards/CreateMongoCard';
+// import CreateNodeCard from './components/flashcards/createCards/CreateNodeCard';
 
 import NodePage from './pages/NodePage';
 import MongoPage from './pages/MongoPage';
@@ -24,6 +24,7 @@ import JavaScriptPage from './pages/JavaScriptPage';
 import ExpressPage from './pages/ExpressPage';
 import ReduxPage from './pages/ReduxPage';
 import FcardPage from './pages/FcardPage';
+
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
@@ -78,7 +79,7 @@ class App extends Component {
 
 							{/* To populate a new flashcards set use the following and change the Create Card */}
 
-							<PrivateRoute exact path='/add' component={CreateMongoCard} />
+							{/* <PrivateRoute exact path='/add' component={CreateMongoCard} /> */}
 						</Switch>
 					</div>
 				</Router>

@@ -37,7 +37,9 @@ app.use(express.json());
 app.use(cors());
 
 // DB Config
-const db = process.env.MONGODB_URI;
+const db = require('./config/keys').mongoURI;
+
+// 'mongodb+srv://Admin:qwerty12345@cards.jug3a.mongodb.net/flashcards?retryWrites=true&w=majority';
 
 // Connect to MongoDB
 mongoose
@@ -114,7 +116,7 @@ require('./routes/authRoutes')(app);
 // app.listen(PORT, () => console.log(`Server up and running on port ${PORT} !`));
 
 // Serve static assets in production
-if (process.env.NODE_ENV == 'production') {
+if (process.env.NODE_ENV === 'production') {
 	// Set static folder
 	app.use(express.static('client/build'));
 
@@ -122,6 +124,10 @@ if (process.env.NODE_ENV == 'production') {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')),
 	);
 }
-app.listen(process.env.PORT, () =>
-	console.log(`Server started on port ${PORT}`),
-);
+
+// ex. template express.static(root, [options])
+// app.get('/*', function (req, res) {
+// 	res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
+
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

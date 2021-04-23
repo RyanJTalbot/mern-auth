@@ -10,7 +10,9 @@ export default function MongoCards() {
 	// Axios async connection to backend
 	const getChoices = async () => {
 		try {
-			const daChoice = await axios.get('/mongos');
+			const daChoice = await axios.get(
+				'https://mern-flashcards-ryanjt.herokuapp.com/mongos',
+			);
 
 			// Set Data
 			setChoices(daChoice.data);

@@ -10,7 +10,9 @@ export default function NodeCards() {
 	// Axios async connection to backend
 	const getChoices = async () => {
 		try {
-			const daChoice = await axios.get('/nodes');
+			const daChoice = await axios.get(
+				'https://mern-flashcards-ryanjt.herokuapp.com/nodes',
+			);
 
 			// Set Data
 			setChoices(daChoice.data);
