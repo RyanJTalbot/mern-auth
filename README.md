@@ -1,3 +1,9 @@
+## Mern Flashcards App
+
+### Live Demo: https://ecstatic-allen-917012.netlify.app/
+
+---
+
 ## Frontend :
 
 ### Setup: use npm install followed by npm start. Runs on localhost:3000
@@ -53,6 +59,7 @@
 
 ### Research:
 
+- why it won't render in safari
 - 3rd party sign-in auth
 
 ### Miscellaneous :
