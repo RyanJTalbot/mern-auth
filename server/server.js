@@ -6,6 +6,7 @@ const cors = require('cors');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 
+const googleAuth = require('./config/googleAuth');
 const githubAuth = require('./routes/githubAuth');
 const users = require('./routes/users');
 const cardsRouter = require('./routes/cards');
@@ -16,6 +17,8 @@ const javascriptRouter = require('./routes/javascriptCards');
 const reactRouter = require('./routes/reactCards');
 const mongoRouter = require('./routes/mongoCards');
 const nodeRouter = require('./routes/nodeCards');
+const googleRouter = require('./routes/index');
+
 require('./models/googleUserModel');
 require('./services/passport');
 
@@ -51,7 +54,7 @@ mongoose
 	.then(() => console.log('MongoDB successfully connected'))
 	.catch((err) => console.log(err));
 
-// Cookie Swssion
+// Cookie Session
 app.use(
 	cookieSession({
 		maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -69,11 +72,18 @@ require('./config/passport')(passport);
 // Github auth ?
 // app.use('/GithubUser', githubAuth);
 
+// Google Auth
+// app.use(googleAuth);
+
 // Routes
 app.use('/users', users);
 
 // Google Auth
 app.use('/auths', users);
+
+// Google OAuth
+app.use('/auth/google', googleRouter);
+app.use('/auth/google/callback', googleRouter);
 
 // Connect to cards
 app.use('/cards', cardsRouter);

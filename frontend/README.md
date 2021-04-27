@@ -1,12 +1,3 @@
-### Research:
-
-- Procfile
-
-removed proxy from packaged.json
-// "proxy": "https://mern-flashcards-ryanjt.herokuapp.com"
-
-## may need to Proxy to another service
-
 ### Just like you can rewrite paths like /\* to /index.html, you can also set up rules to let parts of your site proxy to external services. Let’s say you need to communicate from a single-page app with an API on https://api.example.com that doesn’t support CORS requests. The following rule will let you use /api/ from your JavaScript client:
 
 ### /api/\* https://api.example.com/:splat 200

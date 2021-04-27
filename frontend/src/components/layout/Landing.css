@@ -1,0 +1,49 @@
+#top-column {
+	font-family: 'Permanent Marker';
+	font-weight: 'lighter';
+	text-align: 'center';
+	margin-top: '8rem';
+	margin-bottom: '4rem';
+}
+
+#bold-header {
+	padding-right: '1.5rem';
+	font-weight: 'bold';
+}
+
+/* #btn {
+	margin-right: '5rem';
+	font-size: '2rem';
+}
+
+#btn-two {
+	margin-left: '5rem';
+	font-size: '2rem';
+} */
+
+.reg-btn {
+	padding-right: '5rem';
+	margin-right: '5rem';
+	font-size: '2rem';
+}
+
+.reg-btn-two {
+	margin-left: '5rem';
+	font-size: '2rem';
+}
+
+@media (max-width: 976px) {
+	.reg-btn {
+		margin-left: '5rem';
+		font-size: '2rem';
+	}
+
+	.reg-btn-two {
+		margin-left: '5rem';
+		font-size: '2rem';
+	}
+
+	.para {
+		line-height: 2rem;
+	}
+}

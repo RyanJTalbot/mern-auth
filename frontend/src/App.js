@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
-
+import queryString from 'query-string';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -54,6 +54,14 @@ if (localStorage.jwtToken) {
 }
 
 class App extends Component {
+	componentWillMount() {
+		var query = queryString.parse(this.props.location.search);
+		if (query.token) {
+			window.localStorage.setItem('jwt', query.token);
+			this.props.history.push('/dashboard');
+		}
+	}
+
 	render() {
 		return (
 			<Provider store={store}>

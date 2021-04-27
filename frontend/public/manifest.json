@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "MERN Cards",
+  "name": "RyanJT Mern Flashcards App",
   "icons": [
   
     {
@@ -14,7 +14,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://ecstatic-allen-917012.netlify.app/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
