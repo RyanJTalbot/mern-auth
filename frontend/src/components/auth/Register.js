@@ -26,7 +26,7 @@ class Register extends Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillMount(nextProps) {
 		if (nextProps.errors) {
 			this.setState({
 				errors: nextProps.errors,

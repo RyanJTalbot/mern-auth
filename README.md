@@ -71,3 +71,16 @@
   - ReactCards.js
   - Flashcards.js
   - \_redirects
+
+## frontend: https://github.com/kaloraat/mern-auth-client
+
+## backend: https://github.com/kaloraat/metn-auth-api
+
+https://github.com/kaloraat/mern-auth-bundle
+
+social login references:
+https://aaryanadil.com/react-social-login-tutorial-google-facebook-and-twitter-oauth2
+
+https://jasonwatmore.com/post/2020/10/25/react-facebook-login-tutorial-example
+
+https://github.com/kaloraat/react-node-next-multi-user-blogging-platform/tree/master/120%20login%20with%20google%20backend

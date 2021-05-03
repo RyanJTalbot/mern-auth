@@ -6,6 +6,7 @@ import queryString from 'query-string';
 import GoogleAuth from '../oauth/GoogleAuth';
 import GoogleLogin from '../../components/auth/GoogleLogin';
 import './Landing.css';
+import Google from '../auth/Google';
 
 class Landing extends Component {
 	componentDidMount() {
@@ -70,13 +71,17 @@ class Landing extends Component {
 							</Col>
 						</Row>
 					</span>
-					<div style={{ textAlign: 'center' }}>
+					{/* <div style={{ textAlign: 'center' }}>
 						<GoogleAuth />
-					</div>
+					</div> */}
+					<Google />
 
 					{/* <GoogleLogin /> */}
 				</Container>
-
+				<h5 style={{ textAlign: 'center' }}>
+					to sign-in, you can use 'test@mail.com' for email and 'password' for
+					password{' '}
+				</h5>
 				<Footer />
 			</div>
 		);

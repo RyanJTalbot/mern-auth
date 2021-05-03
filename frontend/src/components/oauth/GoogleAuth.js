@@ -6,7 +6,7 @@ export default class GoogleAuth extends Component {
 		return (
 			<div>
 				<p>
-					<a href='/auth/google' className='button'>
+					<a href='http://localhost:3000/auth/google' className='button'>
 						<div className='button-text'>
 							<span class='svgIcon t-popup-svg'>
 								<svg

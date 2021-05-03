@@ -54,7 +54,7 @@ if (localStorage.jwtToken) {
 }
 
 class App extends Component {
-	componentWillMount() {
+	UNSAFE_componentWillMount() {
 		var query = queryString.parse(this.props.location.search);
 		if (query.token) {
 			window.localStorage.setItem('jwt', query.token);

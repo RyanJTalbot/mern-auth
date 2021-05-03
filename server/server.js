@@ -18,6 +18,7 @@ const reactRouter = require('./routes/reactCards');
 const mongoRouter = require('./routes/mongoCards');
 const nodeRouter = require('./routes/nodeCards');
 const googleRouter = require('./routes/index');
+const googleRoutes = require('./routes/googleRoutes');
 
 require('./models/googleUserModel');
 require('./services/passport');
@@ -68,6 +69,7 @@ app.use(passport.session());
 
 // Passport config
 require('./config/passport')(passport);
+require('./config/passportGoogle');
 
 // Github auth ?
 // app.use('/GithubUser', githubAuth);
@@ -80,6 +82,7 @@ app.use('/users', users);
 
 // Google Auth
 app.use('/auths', users);
+app.use('/users', googleRoutes);
 
 // Google OAuth
 app.use('/auth/google', googleRouter);
@@ -126,14 +129,14 @@ require('./routes/authRoutes')(app);
 // app.listen(PORT, () => console.log(`Server up and running on port ${PORT} !`));
 
 // Serve static assets in production
-if (process.env.NODE_ENV === 'production') {
-	// Set static folder
-	app.use(express.static('client/build'));
+// if (process.env.NODE_ENV === 'production') {
+// 	// Set static folder
+// 	app.use(express.static('client/build'));
 
-	app.get('*', (req, res) =>
-		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')),
-	);
-}
+// 	app.get('*', (req, res) =>
+// 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')),
+// 	);
+// }
 
 // ex. template express.static(root, [options])
 // app.get('/*', function (req, res) {
