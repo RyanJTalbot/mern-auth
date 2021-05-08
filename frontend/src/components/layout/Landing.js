@@ -3,8 +3,6 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import Navbarz from './Navbarz';
 import Footer from '../Footer';
 import queryString from 'query-string';
-// import GoogleAuth from '../oauth/GoogleAuth';
-// import GoogleLogin from '../../components/auth/GoogleLogin';
 import './Landing.css';
 import Google from '../auth/Google';
 

@@ -26,13 +26,13 @@ class Register extends Component {
 		}
 	}
 
-	UNSAFE_componentWillMount(nextProps) {
-		if (nextProps.errors) {
-			this.setState({
-				errors: nextProps.errors,
-			});
-		}
-	}
+	// UNSAFE_componentWillMount(nextProps) {
+	// 	if (nextProps.errors) {
+	// 		this.setState({
+	// 			errors: nextProps.errors,
+	// 		});
+	// 	}
+	// }
 
 	onChange = (e) => {
 		this.setState({ [e.target.id]: e.target.value });

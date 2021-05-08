@@ -1,32 +1,48 @@
-// import React from 'react';
-// import GoogleLogin from 'react-google-login';
-// import axios from 'axios';
+import React, { Component } from 'react';
+import GoogleLogin from 'react-google-login';
+import { Redirect } from 'react-router-dom';
 
-// const handleResponse = async (googleData) => {
-// 	const res = await fetch('/api/v1/auth/google', {
-// 		method: 'POST',
-// 		body: JSON.stringify({
-// 			token: googleData.tokenId,
-// 		}),
-// 		headers: {
-// 			'Content-Type': 'application/json',
-// 		},
-// 	});
-// 	const data = await res.json();
-// 	// store returned user in a context?
-// };
+import axios from 'axios';
 
-// return (
-// 	<div className='pb-3'>
-// 		<GoogleLogin
-// 			clientId='401853306024-pbig7urt774q77cgeeu7ebq344evo4cu.apps.googleusercontent.com'
-// 			buttonText='Sign in with Google'
-// 			className='ct-button ct-button--secondary'
-// 			onSuccess={handleResponse}
-// 			onFailure={handleResponse}
-// 			cookiePolicy='single_host_origin'
-// 		/>
-// 	</div>
-// );
+export default class Loginbygoogle extends Component {
+	constructor(props) {
+		super(props);
 
-// export default GoogleLogin;
+		this.state = {};
+	}
+	signup(res) {
+		const googleresponse = {
+			Name: res.profileObj.name,
+			email: res.profileObj.email,
+			token: res.googleId,
+			Image: res.profileObj.imageUrl,
+			ProviderId: 'Google',
+		};
+
+		axios.post('http://localhost:8000/auth', googleresponse).then((result) => {
+			let responseJson = result;
+			sessionStorage.setItem('userData', JSON.stringify(result));
+			this.props.history.push('/dashboard');
+		});
+	}
+	render() {
+		const responseGoogle = (response) => {
+			console.log(response);
+			var res = response.profileObj;
+			console.log(res);
+
+			this.signup(response);
+		};
+		return (
+			<div>
+				<div className='col-sm-12 btn btn-info'>Login</div>
+				<GoogleLogin
+					clientId='401853306024-pbig7urt774q77cgeeu7ebq344evo4cu.apps.googleusercontent.com'
+					buttonText='Login with Google'
+					onSuccess={responseGoogle}
+					onFailure={responseGoogle}
+				></GoogleLogin>
+			</div>
+		);
+	}
+}

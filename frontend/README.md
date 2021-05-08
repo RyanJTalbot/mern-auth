@@ -9,3 +9,5 @@ https://docs.netlify.com/routing/redirects/rewrites-proxies/#proxy-to-another-se
 https://github.com/Shahzayb/mern-google-login
 
 https://github.com/MeghalBisht/Gamergram
+
+https://dev.to/zelig880/how-to-catch-the-body-of-an-axios-error-4lk0

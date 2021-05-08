@@ -19,8 +19,12 @@ const reactRouter = require('./routes/reactCards');
 const mongoRouter = require('./routes/mongoCards');
 const nodeRouter = require('./routes/nodeCards');
 const googleRouter = require('./routes/index');
-const googleRoutes = require('./routes/googleRoutes');
-const googleOAuth = require('./routes/googleOAuthRoutes');
+// const googleOAuthRoutes = require('./routes/googleOAuthRoutes');
+
+// Googleauth from Config
+const googleAuth = require('./config/googleOAuth');
+// googleauth routes
+const google = require('./routes/googleOAuthRoutes');
 
 require('./models/googleUserModel');
 require('./services/passport');
@@ -76,12 +80,8 @@ app.use(passport.session());
 require('./config/passport')(passport);
 require('./config/passportGoogle');
 
-// Github auth ?
-// app.use('/GithubUser', githubAuth);
-
 // Google Auth
-// app.use(googleAuth);
-// app.use('/api/auth/', googleOAuth);
+// app.use('/auth', googleOAuthRoutes);
 
 // Routes
 app.use('/users', users);
@@ -93,6 +93,7 @@ app.use('/auths', users);
 // Google OAuth
 // app.use('/auth/google', googleRouter);
 // app.use('/auth/google/callback', googleRouter);
+app.use('/auth/google', google);
 
 // Connect to cards
 app.use('/cards', cardsRouter);
