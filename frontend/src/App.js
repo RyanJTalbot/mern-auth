@@ -35,7 +35,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/private-route/PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
-import LoginButton from './components/auth/public/LoginButton';
+
 import Google from './components/auth/Google';
 
 // Check for token to keep user logged in

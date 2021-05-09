@@ -18,11 +18,7 @@ const javascriptRouter = require('./routes/javascriptCards');
 const reactRouter = require('./routes/reactCards');
 const mongoRouter = require('./routes/mongoCards');
 const nodeRouter = require('./routes/nodeCards');
-const googleRouter = require('./routes/index');
-// const googleOAuthRoutes = require('./routes/googleOAuthRoutes');
 
-// Googleauth from Config
-const googleAuth = require('./config/googleOAuth');
 // googleauth routes
 const google = require('./routes/googleOAuthRoutes');
 
@@ -80,19 +76,10 @@ app.use(passport.session());
 require('./config/passport')(passport);
 require('./config/passportGoogle');
 
-// Google Auth
-// app.use('/auth', googleOAuthRoutes);
-
 // Routes
 app.use('/users', users);
 
-// Google Auth
-app.use('/auths', users);
-// app.use('/users', googleRoutes);
-
 // Google OAuth
-// app.use('/auth/google', googleRouter);
-// app.use('/auth/google/callback', googleRouter);
 app.use('/auth/google', google);
 
 // Connect to cards
