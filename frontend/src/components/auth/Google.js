@@ -1,49 +1,3 @@
-// import React from 'react';
-// import GoogleLogin from 'react-google-login';
-// import axios from 'axios';
-// import { createBrowserHistory } from 'history';
-// import { refreshGooglToken } from '../config/refreshGoogleToken';
-
-// let history = createBrowserHistory();
-
-// const Google = () => {
-// 	const onSuccess = (response) => {
-// 		console.log('login success: currentUser:', response.profileObj);
-// 		axios
-// 			.post({
-// 				url: 'http://localhost:8000/auth/google/',
-// 			})
-// 			.then((response) => {
-// 				console.log(response.name, response.data);
-// 				// history.pushState('/dashboard');
-// 			})
-// 			.catch((error) => {
-// 				console.log(error.response.data);
-// 				console.log(error.response.status);
-// 				console.log(error.response.headers);
-// 			});
-// 		refreshGooglToken;
-// 	};
-
-// 	const onFailure = (response) => {
-// 		console.log('login failed: res:', response);
-// 	};
-
-// 	return (
-// 		<div className='pb-3'>
-// 			<GoogleLogin
-// 				clientId='401853306024-pbig7urt774q77cgeeu7ebq344evo4cu.apps.googleusercontent.com'
-// 				buttonText='Sign in with Google'
-// 				onSuccess={onSuccess}
-// 				onFailure={onFailure}
-// 				cookiePolicy={'single_host_origin'}
-// 			/>
-// 		</div>
-// 	);
-// };
-
-// export default Google;
-
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 import axios from 'axios';
@@ -77,11 +31,21 @@ class Google extends React.Component {
 		const responseGoogle = (response) => {
 			console.log(response);
 
+			// 1. In the responseGoogle(response) {...} callback function, you should get back a standard JWT located at response.hg.id_token
+			console.log(response.qc.id_token);
+
 			var res = response.profileObj;
 			console.log(res);
 
 			this.signup(response);
 		};
+
+		// 2. Send this token to your server (preferably as an Authorization header)
+
+		// 3. Have your server decode the idtoken by using a common JWT library such as jwt-simple or by sending a GET request to `https://www.googleapis.com/oauth2/v3/tokeninfo?idtoken=YOURTOKENHERE
+
+		// 4. The returned decoded token should have anhd` key equal to the hosted domain you'd like to restrict to.
+
 		return (
 			<div className='pb-3'>
 				<GoogleLogin

@@ -7,10 +7,10 @@ const cors = require('cors');
 const routes = new router();
 routes.use(bodyParser.json());
 
-const origin = process.env.UI_SERVER_ORIGIN || 'http://localhost:8000';
+const origin = process.env.UI_SERVER_ORIGIN || 'http://localhost:3000';
 routes.use(cors({ origin, credentials: true }));
 
-routes.post('/signin', async (req, res) => {
+routes.post('/auth/google', async (req, res) => {
 	const googleToken = req.body.google_token;
 	if (!googleToken) {
 		res.status(400).send({ code: 400, message: 'Missing Token' });
