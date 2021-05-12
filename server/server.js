@@ -7,6 +7,7 @@ const logger = require('morgan');
 const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const jwt = require('jsonwebtoken');
+const helmet = require('helmet');
 const secretkey = process.env.JWT_SECRET;
 const GoogleLogin = require('./models/googleUserModel');
 
@@ -28,6 +29,8 @@ const googleOAuth = require('./config/googleOAuth');
 // googleauth routes
 const google = require('./routes/googleOAuthRoutes');
 
+const googleRoutes = require('./routes/googleRoutes');
+
 require('./models/googleUserModel');
 require('./services/passport');
 
@@ -36,6 +39,9 @@ require('dotenv').config();
 const PORT = process.env.PORT || 8000;
 
 const app = express();
+
+// Enable Helmet
+app.use(helmet());
 
 // Logger from Morgan
 app.use(logger('combined'));
@@ -151,6 +157,7 @@ app.use('/users', users);
 
 // Google OAuth
 app.use('/auth/google', google);
+// app.use('/auth/google', googleRoutes);
 
 // Connect to cards
 app.use('/cards', cardsRouter);

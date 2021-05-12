@@ -1,0 +1,5 @@
+{
+  "web.client_id" : "401853306024-ck88rrd3tmbk6segfj0e1tr4ukv3dt0p.apps.googleusercontent.com",
+	"web.client_secret" : "tft2igAh6MJb06CWszRHBfip",
+	"web.redirect_uris" : "http://localhost:3000/auth/google"
+}
