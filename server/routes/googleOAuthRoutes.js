@@ -7,10 +7,10 @@ const cors = require('cors');
 const routes = new router();
 routes.use(bodyParser.json());
 
-const origin = process.env.UI_SERVER_ORIGIN || 'http://localhost:3000';
+const origin = process.env.UI_SERVER_ORIGIN || 'http://localhost:8000';
 routes.use(cors({ origin, credentials: true }));
 
-routes.post('/auth/google', async (req, res) => {
+routes.post('/google', async (req, res) => {
 	const googleToken = req.body.google_token;
 	if (!googleToken) {
 		res.status(400).send({ code: 400, message: 'Missing Token' });
@@ -34,10 +34,15 @@ routes.post('/auth/google', async (req, res) => {
 		email,
 	};
 
-	const token = jwt.sign(credentials, JWT_SECRET);
-	res.cookie('jwt', token, {
-		httpOnly: true,
-		domain: process.env.COOKIE_DOMAIN,
+	// let token = jwt.sign(credentials, process.env.JWT_SECRET);
+	// res.cookie('jwt', token, {
+	// 	httpOnly: true,
+	// 	// domain: process.env.COOKIE_DOMAIN,
+	// });
+
+	let token = jwt.sign(credentials, process.env.JWT_SECRET, {
+		algorithm: 'HS256',
+		expiresIn: process.env.TOKEN_LIFESPAN,
 	});
 
 	res.json(credentials);

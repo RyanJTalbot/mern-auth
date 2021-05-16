@@ -129,6 +129,10 @@ class Login extends Component {
 										Login
 									</button>
 								</div>
+								<h4 style={{ paddingTop: '3rem' }}>
+									to sign-in, you can use 'test@mail.com' for email and
+									'password' for password
+								</h4>
 							</form>
 						</div>
 					</div>

@@ -13,3 +13,5 @@ https://github.com/MeghalBisht/Gamergram
 https://dev.to/zelig880/how-to-catch-the-body-of-an-axios-error-4lk0
 
 https://dzone.com/articles/login-with-google-using-reactjs
+
+![image info](./pictures/image.png)

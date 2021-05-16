@@ -8,6 +8,7 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 const jwt = require('jsonwebtoken');
 const helmet = require('helmet');
+
 const secretkey = process.env.JWT_SECRET;
 const GoogleLogin = require('./models/googleUserModel');
 
@@ -150,7 +151,8 @@ app.use(passport.session());
 
 // Passport config
 require('./config/passport')(passport);
-require('./config/passportGoogle');
+require('./config/googleOAuth');
+const passportConfig = require('./config/googleOAuth');
 
 // Routes
 app.use('/users', users);
@@ -184,6 +186,23 @@ app.use('/mongos', mongoRouter);
 app.use('/nodes', nodeRouter);
 
 require('./routes/authRoutes')(app);
+
+// Google
+app.get(
+	'/auth/google',
+	passport.authenticate('google', {
+		scope: ['profile', 'email'],
+		accessType: 'offline',
+		prompt: 'consent',
+	}),
+);
+app.get(
+	'/auth/google/callback',
+	passport.authenticate('google', { failureRedirect: '/login' }),
+	(req, res) => {
+		res.redirect(req.session.returnTo || '/');
+	},
+);
 
 // for production
 

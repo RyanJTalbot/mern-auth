@@ -17,7 +17,7 @@ class Google extends React.Component {
 		};
 
 		axios
-			.post('http://localhost:8000/auth/google', googleResponse)
+			.post('http://localhost:8000/auth/google/callback', googleResponse)
 
 			.then((result) => {
 				let responseJson = result;
