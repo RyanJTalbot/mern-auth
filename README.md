@@ -59,8 +59,8 @@
 
 ### Research:
 
-- why it won't render in safari
-- 3rd party sign-in auth
+- ~~why it won't render in safari~~
+- ~~3rd party sign-in auth~~
 
 ### Miscellaneous :
 

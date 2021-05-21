@@ -66,7 +66,9 @@ class Login extends Component {
 									fontSize: '2rem',
 								}}
 							>
-								<h4 style={{ fontSize: '3rem' }}>
+								<h4
+									style={{ fontSize: '3rem', fontFamily: 'permanent marker' }}
+								>
 									<b>Login</b> Here!
 								</h4>
 								<p className='grey-text text-darken-1'>

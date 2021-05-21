@@ -2,7 +2,7 @@ import { GOOGLE_OAUTH2 } from '../actions/types';
 
 const initialState = [];
 
-const googleReducer = (state = initialState, action) => {
+export default function googleReducer(state = initialState, action) {
 	switch (action.type) {
 		case GOOGLE_OAUTH2: {
 			return action.googleResponse;
@@ -10,6 +10,4 @@ const googleReducer = (state = initialState, action) => {
 		default:
 			return state;
 	}
-};
-
-export default googleReducer;
+}

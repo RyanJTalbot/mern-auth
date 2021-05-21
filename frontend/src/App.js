@@ -35,8 +35,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/private-route/PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
-
-import Google from './components/auth/Google';
+import NotFoundPage from './pages/NotFoundPage';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -74,11 +73,11 @@ class App extends Component {
 			<Provider store={store}>
 				<Router>
 					<div className='App'>
-						<Route exact path='/' component={Landing} />
-						<Route exact path='/register' component={Register} />
-						<Route exact path='/login' component={Login} />
-
 						<Switch>
+							<Route exact path='/' component={Landing} />
+							<Route exact path='/register' component={Register} />
+							<Route exact path='/login' component={Login} />
+
 							<PrivateRoute exact path='/dashboard' component={Dashboard} />
 							<PrivateRoute exact path='/cards' component={FcardPage} />
 							<PrivateRoute exact path='/reduxs' component={ReduxPage} />
@@ -92,10 +91,12 @@ class App extends Component {
 							<PrivateRoute exact path='/reacts' component={ReactPage} />
 							<PrivateRoute exact path='/mongos' component={MongoPage} />
 							<PrivateRoute exact path='/nodes' component={NodePage} />
+							<Route component={NotFoundPage} />
 
 							{/* To populate a new flashcards set use the following and change the Create Card */}
 
 							{/* <PrivateRoute exact path='/add' component={CreateMongoCard} /> */}
+							<Route component={NotFoundPage} />
 						</Switch>
 					</div>
 				</Router>

@@ -1,82 +1,89 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { googleOAuth2 } from '../../actions/googleActions';
+import classnames from 'classnames';
+
 import GoogleLogin from 'react-google-login';
-import axios from 'axios';
-import { isEmpty } from 'lodash';
 
-function App() {
-	const [isLoggedIn, setLoginStatus] = useState(false);
-
-	const getAllUsers = async () => {
-		const data = await axios.get('/user/authenticated/getAll');
-		console.log(data);
-	};
-
-	const responseGoogle = async (response) => {
-		const bodyObject = {
-			authId: response.tokenId,
+class TestGoogle extends Component {
+	constructor() {
+		super();
+		this.state = {
+			this: '',
 		};
-		try {
-			if (isEmpty(response.errors)) {
-				await axios.post('/login/user', bodyObject);
-				setLoginStatus(true);
-			}
-		} catch (e) {
-			console.log(e);
+	}
+
+	componentDidMount() {
+		// If logged in and user navigates to Login page, should redirect them to dashboard
+		if (this.props.auth.isAuthenticated) {
+			this.props.history.push('/dashboard');
 		}
+	}
+
+	UNSAFE_componentWillReceiveProps(nextProps) {
+		if (nextProps.auth.isAuthenticated) {
+			this.props.history.push('/dashboard');
+			// push user to dashboard when they login
+		}
+
+		if (nextProps.errors) {
+			this.setState({
+				errors: nextProps.errors,
+			});
+		}
+	}
+
+	onSubmit = (e) => {
+		e.preventDefault();
+
+		// since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
 	};
 
-	const logout = async () => {
-		try {
-			await axios.get('/logout/user');
-			setLoginStatus(false);
-		} catch (e) {
-			console.log(e);
-		}
-	};
+	render() {
+		const { errors } = this.state;
 
-	useEffect(() => {
-		async function getStatus() {
-			try {
-				const data = await axios.get('/user/checkLoginStatus');
-				console.log(data);
-				if (isEmpty(data.error)) {
-					setLoginStatus(true);
-				}
-			} catch (e) {
-				console.log(e);
-				setLoginStatus(false);
-			}
-		}
-		getStatus();
-	}, []);
+		const responseGoogle = (response) => {
+			console.log('on succes didnt work');
+		};
 
-	return (
-		<div className='App'>
-			<header className='App-header'>
-				<p>Google Login Raect/Node/Express</p>
-			</header>
-			<body>
+		const success = (res) => {
+			var profile = res.getBasicProfile();
+			console.log(profile);
+			this.setState({ [e.target.id]: e.target.value });
+			const data = {
+				this: this.state.data,
+			};
+			this.props.googleActions(data);
+		};
+
+		return (
+			<div>
 				<GoogleLogin
-					clientId='401853306024-pbig7urt774q77cgeeu7ebq344evo4cu.apps.googleusercontent.com'
-					render={(renderProps) => (
-						<button
-							className='btn g-sigin'
-							onClick={renderProps.onClick}
-							disabled={renderProps.disabled}
-						>
-							<p>Continue with Google</p>
-						</button>
-					)}
-					buttonText='Login'
-					onSuccess={responseGoogle}
+					clientId='154114895444-bu5ar17gabc7cjdoquo4k5k2b274mpsu.apps.googleusercontent.com'
+					buttonText='Sign in with Google'
+					onSuccess={success}
 					onFailure={responseGoogle}
 					cookiePolicy={'single_host_origin'}
+					uxMode='redirect'
+					redirectUri={'http://localhost:3000/dashboard'}
 				/>
-				<button onClick={getAllUsers}>Get All Users in db</button>
-				{isLoggedIn && <button onClick={logout}>Logout</button>}
-			</body>
-		</div>
-	);
+			</div>
+		);
+	}
 }
 
-export default App;
+TestGoogle.propTypes = {
+	googleActions: PropTypes.func.isRequired,
+	auth: PropTypes.object.isRequired,
+	errors: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+	auth: state.auth,
+	errors: state.errors,
+});
+googleOAuth2;
+
+export default connect(mapStateToProps, { googleActions })(TestGoogle);

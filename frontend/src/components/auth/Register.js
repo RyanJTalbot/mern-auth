@@ -66,7 +66,9 @@ class Register extends Component {
 								className='col s12'
 								style={{ textAlign: 'center', marginTop: '4rem' }}
 							>
-								<h4 style={{ fontSize: '3rem' }}>
+								<h4
+									style={{ fontSize: '3rem', fontFamily: 'permanent marker' }}
+								>
 									<b>Register</b> below
 								</h4>
 								<p className='grey-text text-darken-1'>
