@@ -17,6 +17,8 @@ const reactRouter = require('./routes/reactCards');
 const mongoRouter = require('./routes/mongoCards');
 const nodeRouter = require('./routes/nodeCards');
 
+const AuthProvider = require('./config/googleAuthProvider');
+
 require('dotenv').config();
 
 const PORT = process.env.PORT || 8000;
@@ -64,6 +66,9 @@ app.use(
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Google
+app.use('/useAuth', useAuth);
 
 // Routes
 app.use('/users', users);

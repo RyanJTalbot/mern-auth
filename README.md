@@ -84,3 +84,5 @@ https://aaryanadil.com/react-social-login-tutorial-google-facebook-and-twitter-o
 https://jasonwatmore.com/post/2020/10/25/react-facebook-login-tutorial-example
 
 https://github.com/kaloraat/react-node-next-multi-user-blogging-platform/tree/master/120%20login%20with%20google%20backend
+
+# Need to set up a session in the google authentication component

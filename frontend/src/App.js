@@ -7,19 +7,10 @@ import {
 } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
-import { setCurrentUser, logoutUser } from './actions/authActions';
+import { setCurrentUser, logoutUser, googleUser } from './actions/authActions';
 import queryString from 'query-string';
 import { Provider } from 'react-redux';
 import store from './store';
-
-// Create Card Routes
-// import CreateReduxCard from './components/flashcards/createCards/CreateReduxCard';
-// import CreateNPMCard from './components/flashcards/createCards/CreateNPMCard';
-// import CreateJavaScriptCard from './components/flashcards/createCards/CreateJavaScriptCard';
-// import CreateExpressCard from './components/flashcards/createCards/CreateExpressCard';
-// import CreateReactCard from './components/flashcards/createCards/CreateReactCard';
-// import CreateMongoCard from './components/flashcards/createCards/CreateMongoCard';
-// import CreateNodeCard from './components/flashcards/createCards/CreateNodeCard';
 
 import NodePage from './pages/NodePage';
 import MongoPage from './pages/MongoPage';
@@ -46,6 +37,7 @@ if (localStorage.jwtToken) {
 	const decoded = jwt_decode(token);
 	// Set user and isAuthenticated
 	store.dispatch(setCurrentUser(decoded));
+	store.dispatch(googleUser(decoded));
 
 	// Check for expired token
 	const currentTime = Date.now() / 1000;
@@ -62,11 +54,23 @@ if (localStorage.jwtToken) {
 class App extends Component {
 	UNSAFE_componentWillMount() {
 		var query = queryString.parse(this.props.location.search);
+
 		if (query.token) {
 			window.localStorage.setItem('jwt', query.token);
 			this.props.history.push('/dashboard');
 		}
+		// if (this.props.clientId) {
+		// 	window.localStorage.setItem('jwt', query.token);
+		// 	this.props.history.push('/dashboard');
+		// }
 	}
+
+	// <switch>
+	// {false && <route path="/secure*"/>}
+	// <route path="/notsecure"/>
+	// </switch>
+
+	// Swap out false with some variable that gets set after auth validation occurs
 
 	render() {
 		return (

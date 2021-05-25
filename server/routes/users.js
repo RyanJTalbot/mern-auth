@@ -7,6 +7,7 @@ const keys = require('../config/keys');
 // Load input validation
 const validateRegisterInput = require('../validation/register');
 const validateLoginInput = require('../validation/login');
+const googleAuth = require('../validation/google');
 
 // Load User model
 const User = require('../models/User');
@@ -99,6 +100,18 @@ router.post('/login', (req, res) => {
 					.json({ passwordincorrect: 'Password incorrect' });
 			}
 		});
+	});
+});
+
+// @route POST /users/google
+// @desc user google auth
+// @access Public
+router.post('/google', async (req, res) => {
+	// verify ticket
+	const { token } = req.body;
+
+	const ticket = await client.verifyIdToken({
+		idToken: token,
 	});
 });
 

@@ -2,7 +2,36 @@ import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 
-import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from './types';
+import {
+	GET_ERRORS,
+	SET_CURRENT_USER,
+	USER_LOADING,
+	GOOGLE_OAUTH2,
+} from './types';
+
+// Google - auth user
+export const googleUser = (profile, history) => (dispatch) => {
+	axios
+		.post('https://mern-flashcards-ryanjt.herokuapp.com/users/google', profile)
+		.then((res) => {
+			// Save to localStorage
+			// Set token to localStorage
+			const { token } = res.tokenId;
+			localStorage.setItem('jwtToken', token);
+			// Set token to Auth header
+			setGoogleUser(token);
+			// Decode token to get user data
+			const decoded = jwt_decode(token);
+			// Set current user
+			dispatch(setCurrentUser(decoded));
+		})
+		.catch((err) =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data,
+			}),
+		);
+};
 
 // Register User
 export const registerUser = (userData, history) => (dispatch) => {
@@ -59,6 +88,14 @@ export const setCurrentUser = (decoded) => {
 export const setUserLoading = () => {
 	return {
 		type: USER_LOADING,
+	};
+};
+
+// Google User
+export const setGoogleUser = (decoded) => {
+	return {
+		type: GOOGLE_OAUTH2,
+		payload: decoded,
 	};
 };
 
